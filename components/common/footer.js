@@ -1,44 +1,54 @@
-// // import { Link } from "gatsby"
-// import React from "react"
-// import StyledFooterLink from "./FooterLink"
-// import styled from "styled-components"
-// import Icon from "./Icon"
-// import {
-//   faHome,
-//   faCalendar,
-//   faGraduationCap,
-// } from "@fortawesome/free-solid-svg-icons"
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
 
-// const FooterMenu = styled.nav`
-//   display: flex;
-//   position: fixed;
-//   bottom: 0;
-//   background-color: #212121;
-//   width: 100%;
-//   min-height: 80px;
-//   overflow-x: auto;
-//   @media (min-width: 768px) {
-//     display: none;
-//   }
-// `
+const FooterMenu = styled.ul`
+  display: flex;
+  position: fixed;
+  bottom: -15px;
+  width: 100%;
+  min-height: 70px;
+  overflow-x: auto;
+  list-style: none;
+  padding: 0;
+  border: 0.5px solid white;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  justify-content: space-around;
+  background-color: #2a2a2a;
 
-// const footer = ({ siteTitle }) => {
-//   return (
-//     <FooterMenu className="footer">
-//       <StyledFooterLink to="/">
-//         <Icon icon={faHome} />
-//         <span>HOME</span>
-//       </StyledFooterLink>
-//       <StyledFooterLink to="/academia">
-//         <Icon icon={faGraduationCap} />
-//         <span>ACADEMIA</span>
-//       </StyledFooterLink>
-//       <StyledFooterLink to="/reservas">
-//         <Icon icon={faCalendar} />
-//         <span>RESERVAS</span>
-//       </StyledFooterLink>
-//     </FooterMenu>
-//   )
-// }
+  @media (min-width: 768px) {
+    display: none;
+  }
 
-export default footer
+  > li {
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+`;
+
+const Footer = () => {
+  return (
+    <FooterMenu>
+      <li>
+        <Link href="/">
+          <span>HOME</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/cursos">
+          <span>CURSOS</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/reservas">
+          <span>RESERVAS</span>
+        </Link>
+      </li>
+    </FooterMenu>
+  );
+};
+
+export default Footer;

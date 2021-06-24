@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/common/Layout";
+
 const GlobalStyle = createGlobalStyle`
   html,body {
     margin: 0;
