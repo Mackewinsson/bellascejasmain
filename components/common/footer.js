@@ -29,7 +29,7 @@ const FooterMenu = styled.ul`
   }
 `;
 
-const Footer = () => {
+const FooterComponents = () => {
   return (
     <FooterMenu>
       <li>
@@ -51,4 +51,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterComponents;
