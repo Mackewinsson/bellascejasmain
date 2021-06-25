@@ -20,18 +20,20 @@ const Ul = styled.ul`
   color: white;
   font-size: small;
   list-style: none;
-  width: 30%;
+  width: 40%;
   padding-right: 50px;
   margin: 0;
   height: 100%;
+
   > li {
-    font-weight: 100;
+    font-weight: 400;
     display: flex;
   }
 
   > li:hover {
     font-size: 1.1em;
     font-weight: bold;
+    text-transform: uppercase;
   }
 `;
 
@@ -49,22 +51,22 @@ const Navbar = () => {
         <Ul>
           <li>
             <Link href="/">
-              <span>INICIO</span>
+              <span>Inicio</span>
             </Link>
           </li>
           <li>
             <Link href="/">
-              <span> MICROBLADING</span>
+              <span> Microblading</span>
             </Link>
           </li>
           <li>
             <Link href="/">
-              <span>STAFF</span>
+              <span>Staff</span>
             </Link>
           </li>
           <li>
             <Link href="/cursos">
-              <span>CURSOS</span>
+              <span>Cursos</span>
             </Link>
           </li>
         </Ul>

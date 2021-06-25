@@ -54,8 +54,7 @@ const StyledButton = styled.a`
   color: white;
   border-radius: 50px;
   padding: 1em 2em;
-  margin-top: 15px;
-  display: inline-block;
+  margin-top: 10px;
 
   &:hover {
     color: white;

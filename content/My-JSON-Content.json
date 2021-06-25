@@ -1,0 +1,247 @@
+{
+  "courses": [
+    {
+      "id": "5401",
+      "name": "Microblading",
+      "price": "Depende de la modalidad",
+      "date": "(Sujeto a cambios por Cuarentena COVID19)",
+      "place": "Santiago",
+      "description": "Curso presencial, practico con kit y materiales incluidos",
+      "teacher": "Yulexi Marquez",
+      "path": "cursos/curso-de-microblading",
+      "courseImage": "/img/neddle.png",
+      "_ID": "cms",
+      "details": {
+        "section1": {
+          "heading": "¿Para quien es este curso?",
+          "bullets": [
+            "Emprendedoras y emprendedores que quieran aprender un oficio lucrativo y GANAR DINERO.",
+            "Profesionales de la belleza que quieran ampliar sus conocimientos.",
+            "Personas que quieren aprender nuevas tendencias del maquillaje permanente."
+          ]
+        },
+        "section2": {
+          "heading": "¿Qué aprenderás?",
+          "bullets": [
+            "Microblading técnica pelo a pelo.",
+            "Microblading técnica shadow.",
+            "Tecnica de microblading sin dolor",
+            "Bioseguridad y asepsia.",
+            "Diseño de cejas desde cero.",
+            "Colorimetria para pigmentación de cejas.",
+            "Materiales",
+            "Pigmentos utilizados",
+            "Marco teorico",
+            "Cuanto cobrar por tus servicios.",
+            "Marketing basico de servicios."
+          ]
+        },
+        "section3": {
+          "heading": "¿Qué incluye el kit?",
+          "bullets": [
+            "Anillos portapigmentos",
+            "Pigmento Biomaser",
+            "Microagujas",
+            "Tebori o plumilla",
+            "Piel sintética",
+            "Lápiz dematografico",
+            "Pie de metro",
+            "Bata desechable",
+            "Guantes",
+            "Gorro",
+            "Mascarilla",
+            "Corta cartón",
+            "Microaplicador",
+            "Consentimiento informado",
+            "Material escrito para soporte"
+          ]
+        }
+      },
+
+      "modalidades": [
+        {
+          "name": "Presencial",
+          "disponiblidad": true,
+          "featured": true,
+          "_ID": "grupalgold",
+          "date": "10 y 11 de julio 2021",
+          "place": "Bellas cejas",
+          "time": "9am a 6pm",
+          "daysOfAccess": "2 días presencial + 3 meses acceso online",
+          "maxStudents": 8,
+          "price": "500.000",
+          "flow": "https://www.flow.cl/btn.php?token=c9bqsi3",
+
+          "bullets": [
+            "Todos los beneficios ONLINE PRO",
+            "Dos días de practicas presenciales con la profesora",
+            "Asesoría directa via whatsapp y llamadas",
+            "Diploma de certificación en microblading",
+            "Diploma de certificación en asepsia",
+            "Kit con Materiales",
+            "Coffee Break e hidratación"
+          ]
+        },
+        {
+          "name": "Personalizado",
+          "disponiblidad": false,
+          "featured": false,
+          "date": "Por reserva",
+          "_ID": "oneonone",
+          "place": "Wework Vivo Imperio, Santiago Centro",
+          "time": "9am a 6pm",
+          "daysOfAccess": "2 dias presencial + 3 meses acceso online",
+          "maxStudents": 2,
+          "price": "1.000.000",
+          "flow": "https://www.flow.cl/btn.php?token=jgcrqva",
+          "bullets": [
+            "Todos los beneficios anteriores",
+            "Dos días de practicas presenciales con la profesora",
+            "Asesoría directa via whatsapp y llamadas",
+            "Diploma de certificación en microblading",
+            "Diploma de certificación en asepsia",
+            "Kit con Materiales",
+            "Coffee Break e hidratación"
+          ]
+        },
+        {
+          "name": "Online",
+          "disponiblidad": true,
+          "featured": true,
+          "_ID": "online",
+          "date": "Acceso inmediato",
+          "place": "En linea",
+          "time": "Tu elijes",
+          "daysOfAccess": "6 Meses",
+          "maxStudents": "Unlimited",
+          "price": "200.000",
+          "flow": "https://www.flow.cl/btn.php?token=ucz0siv",
+          "bullets": [
+            "Clases detalladas en video FullHD",
+            "10 Ejercicios practicos",
+            "Diploma de certificacion digital",
+            "Materiales se venden por separado"
+          ]
+        },
+        {
+          "name": "Online con asesoria ★",
+          "disponiblidad": true,
+          "featured": true,
+          "_ID": "onlinepro",
+          "date": "Acceso inmediato",
+          "place": "En linea",
+          "time": "Tu elijes",
+          "daysOfAccess": "6 Meses",
+          "maxStudents": "Unlimited",
+          "price": "300.000",
+          "flow": "https://www.flow.cl/btn.php?token=ag7rqm1",
+
+          "bullets": [
+            "Clases detalladas en video FullHD",
+            "10 Ejercicios practicos",
+            "Asesoria via whatsapp",
+            "Diploma de certificacion digital",
+            "Materiales se venden por separado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5402",
+      "name": "Microblading ojos y labios",
+      "price": "Depende de la modalidad",
+      "date": "Febrero 2021",
+      "place": "Santiago",
+      "description": "Curso presencial, practico con kit y materiales incluidos",
+      "teacher": "Yulexi Marquez",
+      "path": "cursos/curso-de-microblading-ojos-y-labios",
+      "courseImage": "/img/cube.png",
+      "_ID": "cmols",
+      "details": {
+        "section1": {
+          "heading": "¿Para quien es este curso?",
+          "bullets": [
+            "Emprendedoras y emprendedores que quieran aprender un oficio lucrativo y GANAR DINERO.",
+            "Profesionales de la belleza que quieran ampliar sus conocimientos.",
+            "Personas que quieren aprender nuevas tendencias del maquillaje permanente."
+          ]
+        },
+        "section2": {
+          "heading": "¿Qué aprenderás?",
+          "bullets": [
+            "Microblading para delineado de ojos",
+            "Microblading para delineado y relleno e labios",
+            "Tecnica de microblading sin dolor",
+            "Bioseguridad y asepsia.",
+            "Diseño de cejas desde cero.",
+            "Colorimetria para pigmentación de cejas.",
+            "Materiales",
+            "Pigmentos utilizados",
+            "Marco teórico",
+            "Cuanto cobrar por tus servicios.",
+            "Marketing básico de servicios."
+          ]
+        },
+        "section3": {
+          "heading": "¿Qué incluye el kit?",
+          "bullets": [
+            "1 tebori",
+            "10 filos",
+            "1 piel sintética",
+            "1 pigmento negro",
+            "1 pigmento rojo",
+            "1 pie de metro",
+            "1 marcador para medidas  rojo",
+            "1 marcador para medidas negro",
+            "1 marcador gel blanco"
+          ]
+        }
+      },
+
+      "modalidades": [
+        {
+          "name": "Grupal GOLD ★★",
+          "disponiblidad": false,
+          "featured": true,
+          "_ID": "grupalgold",
+          "date": "Por reserva",
+          "place": "Wework Vivo Imperio, Santiago Centro",
+          "time": "9am a 6pm",
+          "daysOfAccess": "2 días presencial + 3 meses acceso online",
+          "maxStudents": 8,
+          "price": "800.000",
+          "bullets": [
+            "Todos los beneficios ONLINE PRO",
+            "Dos días de practicas presenciales con la profesora",
+            "Asesoría directa via whatsapp y llamadas",
+            "Diploma de certificación en microblading",
+            "Diploma de certificación en asepsia",
+            "Kit con Materiales",
+            "Coffee Break e hidratación"
+          ]
+        },
+        {
+          "name": "One On One ★★★",
+          "disponiblidad": false,
+          "featured": false,
+          "_ID": "oneonone",
+          "date": "Por reserva",
+          "place": "Wework Vivo Imperio, Santiago Centro",
+          "time": "9am a 6pm",
+          "daysOfAccess": "2 dias presencial + 3 meses acceso online",
+          "maxStudents": 2,
+          "price": "1.500.000",
+          "bullets": [
+            "Todos los beneficios anteriores",
+            "Dos días de practicas presenciales con la profesora",
+            "Asesoría directa via whatsapp y llamadas",
+            "Diploma de certificación en microblading",
+            "Diploma de certificación en asepsia",
+            "Kit con Materiales",
+            "Coffee Break e hidratación"
+          ]
+        }
+      ]
+    }
+  ]
+}
