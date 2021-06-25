@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const Nav = styled.nav`
+  grid-area: header;
   width: 100%;
   height: 61px;
   background-color: #2a2a2a;

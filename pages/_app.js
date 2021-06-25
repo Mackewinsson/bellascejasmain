@@ -8,13 +8,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
     overflow-x: hidden;
-    height: 100%;
     width: 100%;
+    min-height: 100vh;
   }
 
-  body{
-    min-height: 100%;
-  }
 `;
 
 const theme = {

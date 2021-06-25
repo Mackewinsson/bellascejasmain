@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 80%;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
 `;
 
@@ -26,6 +26,7 @@ export const CenterContent = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 `;
 
 export const ALink = styled.a`
