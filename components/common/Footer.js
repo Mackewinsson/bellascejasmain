@@ -1,54 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "next/link";
 
-const FooterMenu = styled.ul`
+const FooterArea = styled.footer`
   grid-area: footer;
   display: flex;
-  width: 100%;
-  height: 70px;
-  list-style: none;
-  padding: 0;
-  border: 0.5px solid white;
-  border-bottom: none;
-  border-right: none;
-  border-left: none;
-  justify-content: space-around;
+  justify-content: center;
+  height: 50px;
+  align-items: center;
   background-color: #2a2a2a;
-  z-index: 1000;
-  margin-top: 0;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-
-  > li {
-    display: flex;
-    align-items: center;
-    color: white;
-  }
+  color: #fff;
+  font-weight: bold;
 `;
-
-const FooterComponents = () => {
-  return (
-    <FooterMenu>
-      <li>
-        <Link href="/">
-          <span>HOME</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/cursos">
-          <span>CURSOS</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/reservas">
-          <span>RESERVAS</span>
-        </Link>
-      </li>
-    </FooterMenu>
-  );
+const FooterComponent = () => {
+  return <FooterArea>By Yulexi Marquez</FooterArea>;
 };
 
-export default FooterComponents;
+export default FooterComponent;

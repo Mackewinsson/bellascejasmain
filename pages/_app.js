@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
+    scroll-behavior: smooth;
   }
 
 `;

@@ -10,7 +10,7 @@ const ImageWrapperMobileShow = styled.div`
 
 const Ring = styled.div`
   position: absolute;
-  top: -20px;
+  top: 10px;
   left: 70px;
 `;
 
@@ -29,13 +29,13 @@ const ImageWrapperMobile = () => {
   return (
     <ImageWrapperMobileShow>
       <Ring>
-        <Image src="/img/ring.png" alt="ring" width="100" height="100" />
+        <Image src="/img/ring.png" alt="ring" width="80" height="80" />
       </Ring>
       <Cone>
         <Image src="/img/cone.png" alt="cone" width="80" height="80" />
       </Cone>
       <Cube>
-        <Image src="/img/cube.png" alt="cube" width="100" height="100" />
+        <Image src="/img/cube.png" alt="cube" width="80" height="80" />
       </Cube>
     </ImageWrapperMobileShow>
   );

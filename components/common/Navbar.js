@@ -5,12 +5,8 @@ import Link from "next/link";
 const Nav = styled.nav`
   grid-area: header;
   width: 100%;
-  height: 61px;
+  height: 50px;
   background-color: #2a2a2a;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const Ul = styled.ul`
@@ -27,14 +23,18 @@ const Ul = styled.ul`
   height: 100%;
 
   > li {
-    font-weight: 400;
+    font-weight: bold;
     display: flex;
   }
 
   > li:hover {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
-    text-transform: uppercase;
+    color: lightblue;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -43,6 +43,11 @@ const UlWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   height: 100%;
+`;
+
+const StyledATag = styled.a`
+  color: white;
+  text-decoration: none;
 `;
 
 const Navbar = () => {
@@ -66,9 +71,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/cursos">
+            <StyledATag href="#cursos">
               <span>Cursos</span>
-            </Link>
+            </StyledATag>
           </li>
         </Ul>
       </UlWrapper>

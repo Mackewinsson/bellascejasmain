@@ -1,12 +1,12 @@
 import React from "react";
-import CourseCard from "../components/common/CourseCard";
-import coursesData from "../content/My-JSON-Content.json";
+import CourseCard from "../common/CourseCard";
+import coursesData from "../../content/My-JSON-Content.json";
 import {
   Wrapper,
   MainTitle,
   CenterContent,
   Subtitle,
-} from "../components/common/StyledComponents/Styles";
+} from "../common/StyledComponents/Styles";
 import styled from "styled-components";
 
 const CardWrapper = styled.div`
@@ -17,7 +17,7 @@ const CardWrapper = styled.div`
   align-items: center;
 `;
 
-const Cursos = () => {
+const CursosComponent = () => {
   const coursesCards = coursesData.courses.map((course, i) => {
     return (
       <CourseCard
@@ -35,7 +35,7 @@ const Cursos = () => {
   });
 
   return (
-    <Wrapper>
+    <Wrapper id="cursos">
       <CenterContent>
         <MainTitle>MICROBLADING ACADEMY</MainTitle>
         <Subtitle>Cursos presenciales</Subtitle>
@@ -44,4 +44,4 @@ const Cursos = () => {
     </Wrapper>
   );
 };
-export default Cursos;
+export default CursosComponent;

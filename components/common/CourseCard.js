@@ -72,6 +72,7 @@ const LinkWrap = styled.div`
     text-decoration: none;
     color: #2a2a2a;
     font-weight: bold;
+    color: #2997ff;
 
     &:hover {
       font-size: 1.1em;
@@ -84,18 +85,7 @@ const ImageWrapper = styled.div`
   position: absolute;
 `;
 
-const CourseCard = ({
-  name,
-  price,
-  place,
-  date,
-  description,
-  teacher,
-  path,
-  index,
-  modalidad,
-  img,
-}) => {
+const CourseCard = ({ name, date, description, path, img }) => {
   return (
     <StyledCard>
       <CardTitleContainer>

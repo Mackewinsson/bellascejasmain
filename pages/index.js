@@ -3,9 +3,17 @@ import { Wrapper } from "../components/common/StyledComponents/Styles";
 import styled from "styled-components";
 import Image from "next/image";
 import ImageWrapperMobile from "../components/common/ImageWrapperMobile";
+import Cursos from "../components/sections/Cursos";
 
-const BackgroundWrapper = styled.div`
+const SectionWrapper = styled.div`
   background-color: #2a2a2a;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+`;
+
+const CursosSection = styled.div`
+  background-color: #fff;
   width: 100%;
 `;
 
@@ -100,28 +108,33 @@ const Cube = styled.div`
 
 const index = () => {
   return (
-    <BackgroundWrapper>
-      <ImageWrapperMobile />
-      <Ring>
-        <Image src="/img/ring.png" alt="ring" width="200" height="200" />
-      </Ring>
-      <Cone>
-        <Image src="/img/cone.png" alt="cone" width="200" height="200" />
-      </Cone>
-      <Cube>
-        <Image src="/img/cube.png" alt="cube" width="200" height="200" />
-      </Cube>
-      <Wrapper>
-        <StyledBody>
-          <StyledTitle>
-            {" "}
-            Cejas Perfectas
-            <br /> en todo momento
-          </StyledTitle>
-          <StyledButton>Reserva tu hora</StyledButton>
-        </StyledBody>
-      </Wrapper>
-    </BackgroundWrapper>
+    <>
+      <SectionWrapper>
+        <ImageWrapperMobile />
+        <Ring>
+          <Image src="/img/ring.png" alt="ring" width="200" height="200" />
+        </Ring>
+        <Cone>
+          <Image src="/img/cone.png" alt="cone" width="200" height="200" />
+        </Cone>
+        <Cube>
+          <Image src="/img/cube.png" alt="cube" width="200" height="200" />
+        </Cube>
+        <Wrapper>
+          <StyledBody>
+            <StyledTitle>
+              {" "}
+              Cejas Perfectas
+              <br /> en todo momento
+            </StyledTitle>
+            <StyledButton>Reserva tu hora</StyledButton>
+          </StyledBody>
+        </Wrapper>
+      </SectionWrapper>
+      <CursosSection>
+        <Cursos />
+      </CursosSection>
+    </>
   );
 };
 
