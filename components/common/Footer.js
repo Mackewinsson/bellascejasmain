@@ -10,6 +10,7 @@ const FooterArea = styled.footer`
   background-color: #2a2a2a;
   color: #fff;
   font-weight: bold;
+  font-size: 0.8em;
 `;
 const FooterComponent = () => {
   return <FooterArea>By Yulexi Marquez</FooterArea>;

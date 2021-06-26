@@ -49,11 +49,19 @@ export const StyledUl = styled.ul`
   text-decoration: none;
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 `;
 
 export const StyledLiCard = styled.li`
-  width: 100px;
-  height: 100px;
-  background-color: lightgray;
+  width: 150px;
+  height: 150px;
+  background-color: gray;
   border-radius: 25px;
+  margin: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 `;
