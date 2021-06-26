@@ -42,3 +42,18 @@ export const ALink = styled.a`
     padding: 10px;
   }
 `;
+
+export const DetailsSection = styled.div``;
+
+export const StyledUl = styled.ul`
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+`;
+
+export const StyledLiCard = styled.li`
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border-radius: 25px;
+`;

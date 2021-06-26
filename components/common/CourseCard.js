@@ -99,7 +99,7 @@ const CourseCard = ({ name, date, description, path, img }) => {
         <b>Fecha:</b>
         <small>{date}</small>
         <LinkWrap>
-          <Link href={path}>{"> Ver Detalles"}</Link>
+          <Link href={path}>{"> Ver detalles"}</Link>
         </LinkWrap>
       </CardBody>
     </StyledCard>
