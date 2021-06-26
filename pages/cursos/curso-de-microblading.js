@@ -33,6 +33,7 @@ const cursodemicroblading = () => {
           setShowModal(true);
           setModalidad(modalidad);
         }}
+        key={modalidad._ID}
       >
         <StyledLiCard>
           <h4 style={{ paddingRight: "0.1em", paddingLeft: "0.1em" }}>

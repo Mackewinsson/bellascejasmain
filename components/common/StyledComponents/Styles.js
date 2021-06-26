@@ -55,11 +55,11 @@ export const StyledUl = styled.ul`
 `;
 
 export const StyledLiCard = styled.li`
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   background-color: gray;
   border-radius: 25px;
-  margin: 5px 5px;
+  margin: 5px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
