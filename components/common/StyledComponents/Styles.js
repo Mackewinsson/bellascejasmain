@@ -72,7 +72,7 @@ export const Button = styled.button`
   border-radius: 25px;
   font-size: 1em;
   color: #2997ff;
-
+  border: 1px solid #2a2a2a;
   &:hover {
     font-weight: bold;
     font-size: 1.1em;

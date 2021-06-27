@@ -9,7 +9,7 @@ import {
 } from "../../components/common/StyledComponents/Styles";
 import styled from "styled-components";
 import Modal from "../../components/common/Modal";
-
+import Image from "next/image";
 import coursesData from "../../content/My-JSON-Content.json";
 
 const StyledA = styled.a`
@@ -127,6 +127,7 @@ const cursodemicroblading = () => {
               boton que dice <b>reservar cupo</b>. debes hacer click ahi.
             </li>
             <li>Luego llegaras a la pasarela de pago FLOW / WEBPAY.</li>
+            <Image src="/img/webpay.png" width="70" height="40" />
             <li>Elige tu forma de pago preferida y sigue los pasos.</li>
             <li>
               Una vez completada la compra debes tomar una captura de pantalla.
