@@ -70,7 +70,6 @@ const LinkWrap = styled.div`
     height: 100%;
     align-items: center;
     text-decoration: none;
-    color: #2a2a2a;
     font-weight: bold;
     color: #2997ff;
 

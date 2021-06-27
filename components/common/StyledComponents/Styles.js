@@ -43,8 +43,6 @@ export const ALink = styled.a`
   }
 `;
 
-export const DetailsSection = styled.div``;
-
 export const StyledUl = styled.ul`
   text-decoration: none;
   list-style: none;
@@ -57,11 +55,26 @@ export const StyledUl = styled.ul`
 export const StyledLiCard = styled.li`
   width: 130px;
   height: 130px;
-  background-color: gray;
+  background-color: #2a2a2a;
   border-radius: 25px;
   margin: 5px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
+`;
+
+export const Button = styled.button`
+  margin-top: 30px;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 25px;
+  font-size: 1em;
+  color: #2997ff;
+
+  &:hover {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
 `;

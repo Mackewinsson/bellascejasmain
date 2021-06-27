@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-
 import styled from "styled-components";
+import { Button } from "./StyledComponents/Styles";
 
 const Modal = ({ show, onClose, children, title, data }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -61,6 +61,9 @@ const Modal = ({ show, onClose, children, title, data }) => {
             <b>Horario: </b>
             {time}
           </span>
+          <ButtonWrapper>
+            <Button>Reservar cupo</Button>
+          </ButtonWrapper>
         </StyledModalBody>
       </StyledModal>
     </StyledModalOverlay>
@@ -76,6 +79,12 @@ const Modal = ({ show, onClose, children, title, data }) => {
   }
 };
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;
+
 const StyledModalBody = styled.div`
   padding-top: 10px;
   display: flex;
@@ -87,7 +96,7 @@ const StyledModalHeader = styled.div`
   justify-content: flex-end;
   font-size: 25px;
   > a {
-    font-size: 0.7em;
+    font-size: 0.6em;
     background-color: #2a2a2a;
     border-radius: 50px;
     width: 30px;

@@ -68,7 +68,7 @@
           "place": "Bellas cejas",
           "time": "9am a 6pm",
           "daysOfAccess": "2 días presencial + 3 meses acceso online",
-          "maxStudents": 8,
+          "maxStudents": 5,
           "price": "500.000",
           "flow": "https://www.flow.cl/btn.php?token=c9bqsi3",
 
@@ -124,7 +124,7 @@
           ]
         },
         {
-          "name": "Online con asesoria ★",
+          "name": "Online PRO",
           "disponiblidad": true,
           "featured": true,
           "_ID": "onlinepro",

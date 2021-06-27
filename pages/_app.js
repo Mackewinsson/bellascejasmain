@@ -13,6 +13,20 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
+  a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #2997ff;
+
+    a::hover {
+      font-size: 1.1em;
+      text-decoration: underline;
+    }
+  }
+
 `;
 
 const theme = {
