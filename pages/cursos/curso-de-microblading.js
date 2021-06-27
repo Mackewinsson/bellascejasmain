@@ -6,6 +6,8 @@ import {
   Button,
   StyledUl,
   StyledLiCard,
+  GoUpButton,
+  SideBySide,
 } from "../../components/common/StyledComponents/Styles";
 import styled from "styled-components";
 import Modal from "../../components/common/Modal";
@@ -62,18 +64,18 @@ const cursodemicroblading = () => {
       <CenterContent>
         <MainTitle>Curso de Microblading</MainTitle>
         <DetailsSection>
-          <h4>Modalidades disponibles</h4>
+          <h4 id="modalidades">Modalidades disponibles</h4>
           <small>👇 Haz click para ver detalle, fecha y valores👇</small>
           <StyledUl style={{ marginBottom: "50px" }}>{modalidadCards}</StyledUl>
           <hr />
           <h4>¿Qué es el microblading?</h4>
           <P>
-            El microblading es la técnica de maquillaje permanente mas demandada
-            y lucrativa en la actualidad. En este curso aprenderás la técnica de
-            microblading para la construcción parcial o total de cejas pelo a
-            pelo. Mediante un lenguaje ameno y cercano podrás ir descubriendo
-            cada una de las secciones de aprendizaje que hemos diseñado
-            especialmente para ti
+            El microblading es la técnica de maquillaje semipermanente mas
+            demandada y lucrativa en la actualidad. En este curso aprenderás la
+            técnica de microblading para la construcción parcial o total de
+            cejas pelo a pelo. Mediante un lenguaje ameno y cercano podrás ir
+            descubriendo cada una de las secciones de aprendizaje que hemos
+            diseñado especialmente para ti
           </P>
           <br />
           <br />
@@ -93,7 +95,7 @@ const cursodemicroblading = () => {
           </StyledUlList>
           <h4>{curso.details.section2.heading}</h4>
           <StyledUlList>
-            {curso.details.section1.bullets.map((el, i) => {
+            {curso.details.section2.bullets.map((el, i) => {
               return <li key={el}>{el}</li>;
             })}
           </StyledUlList>
@@ -103,11 +105,7 @@ const cursodemicroblading = () => {
           <h4>{curso.details.section3.heading}</h4>
           <StyledUlList>
             {curso.details.section3.bullets.map((el) => {
-              return (
-                <li className="text-justify" key={el}>
-                  {el}
-                </li>
-              );
+              return <li key={el}>{el}</li>;
             })}
           </StyledUlList>
           <small>
@@ -140,8 +138,17 @@ const cursodemicroblading = () => {
               Si ya terminaste de hacer el pago o si tienes dudas puedes usar
               este boton de asistencia para ser atendida
             </li>
-            <Button>Necesito ayuda</Button>
           </StyledUlList>
+          <SideBySide>
+            <Button
+              target="_blank"
+              rel="noreferrer"
+              href="https://api.whatsapp.com/send?phone=56949363030&text=Hola necesito asistencia con el curso de microblading"
+            >
+              Necesito ayuda
+            </Button>
+            <GoUpButton href="#modalidades">↑</GoUpButton>
+          </SideBySide>
         </DetailsSection>
       </CenterContent>
       <Modal

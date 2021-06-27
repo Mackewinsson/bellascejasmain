@@ -64,8 +64,10 @@ export const StyledLiCard = styled.li`
   color: #fff;
 `;
 
-export const Button = styled.button`
-  margin-top: 30px;
+export const Button = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 150px;
   height: 50px;
   background-color: transparent;
@@ -77,4 +79,26 @@ export const Button = styled.button`
     font-weight: bold;
     font-size: 1.1em;
   }
+`;
+
+export const GoUpButton = styled.a`
+  width: 30px;
+  height: 30px;
+  background-color: #2a2a2a;
+  color: #fff;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 1em;
+`;
+
+export const SideBySide = styled.div`
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
 `;
