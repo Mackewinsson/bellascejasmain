@@ -75,9 +75,10 @@ export const Button = styled.a`
   font-size: 1em;
   color: #2997ff;
   border: 1px solid #2a2a2a;
+  /* margin-top: ${(props) => (props.marginTop ? "0px" : "0px")}; */
   &:hover {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1em;
   }
 `;
 

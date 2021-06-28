@@ -5,7 +5,19 @@ import { Button } from "./StyledComponents/Styles";
 
 const Modal = ({ show, onClose, children, title, data }) => {
   const [isBrowser, setIsBrowser] = useState(false);
-  const { name, disponibilidad, date, maxStudents, place, price, time } = data;
+  const {
+    name,
+    disponibilidad,
+    date,
+    maxStudents,
+    place,
+    price,
+    time,
+    daysOfAccess,
+    featured,
+    flow,
+    onlineCourse,
+  } = data;
   useEffect(() => {
     setIsBrowser(true);
   }, []);
@@ -27,42 +39,57 @@ const Modal = ({ show, onClose, children, title, data }) => {
         <StyledModalBody>
           {/* CONTENIDO DE EL MODAL */}
           {children}
-          <span>
-            <b>Modalidad: </b>
-            {name}
-          </span>
+          <h4
+            style={{
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <b>Curso de microblading {name}</b>
+          </h4>
           <br />
           <span>
             <b>Disponibilidad: </b>
-            {disponibilidad ? "Si" : "No"}
+            {disponibilidad === true ? "Si" : "No"}
           </span>
-          <br />
           <span>
             <b>Fecha: </b>
             {date}
           </span>
-          <br />
           <span>
             <b>Capacidad: </b>
             {maxStudents}
           </span>
-          <br />
+          <span>
+            <b>Duración: </b>
+            {daysOfAccess}
+          </span>
           <span>
             <b>Inversion: </b>
             {price}
           </span>
-          <br />
           <span>
             <b>Lugar: </b>
             {place}
           </span>
-          <br />
           <span>
             <b>Horario: </b>
             {time}
           </span>
+
+          {onlineCourse ? (
+            <GiftWrapper>
+              <h4>Regalo 🎁</h4>
+              <h5>🎉Curso online por 6 meses 🥳</h5>
+            </GiftWrapper>
+          ) : (
+            ""
+          )}
           <ButtonWrapper>
-            <Button>Reservar cupo</Button>
+            <Button marginTop href={flow}>
+              Reservar cupo
+            </Button>
           </ButtonWrapper>
         </StyledModalBody>
       </StyledModal>
@@ -79,6 +106,20 @@ const Modal = ({ show, onClose, children, title, data }) => {
   }
 };
 
+const GiftWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  > h4 {
+    margin-bottom: 0;
+  }
+  > h5 {
+    margin-top: 0;
+  }
+`;
 const ButtonWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -112,7 +153,7 @@ const StyledModalHeader = styled.div`
 const StyledModal = styled.div`
   background: white;
   width: 65%;
-  height: 400px;
+  min-height: 300px;
   border-radius: 25px;
   padding: 2em;
 `;

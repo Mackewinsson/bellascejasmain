@@ -61,7 +61,7 @@
       "modalidades": [
         {
           "name": "Presencial",
-          "disponiblidad": true,
+          "disponibilidad": true,
           "featured": true,
           "_ID": "grupalgold",
           "date": "10 y 11 de julio 2021",
@@ -70,6 +70,7 @@
           "daysOfAccess": "2 días presencial + 3 meses acceso online",
           "maxStudents": 5,
           "price": "500.000",
+          "onlineCourse": true,
           "flow": "https://www.flow.cl/btn.php?token=c9bqsi3",
 
           "bullets": [
@@ -84,7 +85,7 @@
         },
         {
           "name": "Personalizado",
-          "disponiblidad": false,
+          "disponibilidad": false,
           "featured": false,
           "date": "Por reserva",
           "_ID": "oneonone",
@@ -93,6 +94,7 @@
           "daysOfAccess": "2 dias presencial + 3 meses acceso online",
           "maxStudents": 2,
           "price": "1.000.000",
+          "onlineCourse": true,
           "flow": "https://www.flow.cl/btn.php?token=jgcrqva",
           "bullets": [
             "Todos los beneficios anteriores",
@@ -106,15 +108,16 @@
         },
         {
           "name": "Online",
-          "disponiblidad": true,
+          "disponibilidad": true,
           "featured": true,
           "_ID": "online",
           "date": "Acceso inmediato",
           "place": "En linea",
           "time": "Tu elijes",
-          "daysOfAccess": "6 Meses",
+          "daysOfAccess": "1 Año",
           "maxStudents": "Unlimited",
           "price": "200.000",
+          "onlineCourse": false,
           "flow": "https://www.flow.cl/btn.php?token=ucz0siv",
           "bullets": [
             "Clases detalladas en video FullHD",
@@ -125,7 +128,7 @@
         },
         {
           "name": "Online PRO",
-          "disponiblidad": true,
+          "disponibilidad": true,
           "featured": true,
           "_ID": "onlinepro",
           "date": "Acceso inmediato",
@@ -134,8 +137,8 @@
           "daysOfAccess": "6 Meses",
           "maxStudents": "Unlimited",
           "price": "300.000",
+          "onlineCourse": false,
           "flow": "https://www.flow.cl/btn.php?token=ag7rqm1",
-
           "bullets": [
             "Clases detalladas en video FullHD",
             "10 Ejercicios practicos",
@@ -201,7 +204,7 @@
       "modalidades": [
         {
           "name": "Grupal GOLD ★★",
-          "disponiblidad": false,
+          "disponibilidad": false,
           "featured": true,
           "_ID": "grupalgold",
           "date": "Por reserva",
@@ -210,6 +213,7 @@
           "daysOfAccess": "2 días presencial + 3 meses acceso online",
           "maxStudents": 8,
           "price": "800.000",
+          "onlineCourse": true,
           "bullets": [
             "Todos los beneficios ONLINE PRO",
             "Dos días de practicas presenciales con la profesora",
@@ -221,8 +225,8 @@
           ]
         },
         {
-          "name": "One On One ★★★",
-          "disponiblidad": false,
+          "name": "Personalizado",
+          "disponibilidad": false,
           "featured": false,
           "_ID": "oneonone",
           "date": "Por reserva",
@@ -231,6 +235,7 @@
           "daysOfAccess": "2 dias presencial + 3 meses acceso online",
           "maxStudents": 2,
           "price": "1.500.000",
+          "onlineCourse": true,
           "bullets": [
             "Todos los beneficios anteriores",
             "Dos días de practicas presenciales con la profesora",

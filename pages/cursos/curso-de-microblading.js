@@ -7,7 +7,6 @@ import {
   StyledUl,
   StyledLiCard,
   GoUpButton,
-  SideBySide,
 } from "../../components/common/StyledComponents/Styles";
 import styled from "styled-components";
 import Modal from "../../components/common/Modal";
@@ -33,7 +32,22 @@ const StyledUlList = styled.ul`
     margin-top: 15px;
   }
 `;
+const GoUpWrapper = styled.div`
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
+const SideBySide = styled.div`
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+`;
 const cursodemicroblading = () => {
   const curso = coursesData.courses[0];
   const modalidades = curso.modalidades;
@@ -147,7 +161,13 @@ const cursodemicroblading = () => {
             >
               Necesito ayuda
             </Button>
-            <GoUpButton href="#modalidades">↑</GoUpButton>
+            <GoUpWrapper>
+              <GoUpButton href="#modalidades">↑</GoUpButton>
+
+              <small style={{ color: "lightgray", marginTop: "7px" }}>
+                Ir arriba
+              </small>
+            </GoUpWrapper>
           </SideBySide>
         </DetailsSection>
       </CenterContent>
