@@ -30,7 +30,7 @@ const Ul = styled.ul`
   > li:hover {
     font-size: 1em;
     font-weight: bold;
-    color: lightblue;
+    color: #2997ff;
   }
 
   @media (max-width: 768px) {
@@ -62,12 +62,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/">
-              <span> Microblading</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <span>Staff</span>
+              <span>Profesora</span>
             </Link>
           </li>
           <li>

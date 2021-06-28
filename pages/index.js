@@ -61,13 +61,14 @@ const StyledButton = styled.a`
   background-color: transparent;
   color: white;
   border-radius: 50px;
-  padding: 1em 2em;
+  padding: 1em 1em;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
 
   &:hover {
     color: white;
     text-decoration: none;
-    font-size: 1.1em;
     font-weight: bold;
   }
 
@@ -124,10 +125,10 @@ const index = () => {
           <StyledBody>
             <StyledTitle>
               {" "}
-              Cejas Perfectas
-              <br /> en todo momento
+              Cambia tu vida
+              <br /> desde casa
             </StyledTitle>
-            <StyledButton>Reserva tu hora</StyledButton>
+            <StyledButton href="#cursos">Cursos disponibles</StyledButton>
           </StyledBody>
         </Wrapper>
       </SectionWrapper>

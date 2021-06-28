@@ -62,6 +62,18 @@ export const StyledLiCard = styled.li`
   justify-content: center;
   align-items: center;
   color: #fff;
+  position: relative;
+`;
+
+export const FeaturedLiCard = styled.div`
+  background-color: #2997ff;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0px 0px 25px 25px;
+  font-size: 0.7em;
+  font-weight: normal;
+  padding: 2px 0px;
 `;
 
 export const Button = styled.a`
@@ -75,7 +87,7 @@ export const Button = styled.a`
   font-size: 1em;
   color: #2997ff;
   border: 1px solid #2a2a2a;
-  /* margin-top: ${(props) => (props.marginTop ? "0px" : "0px")}; */
+  margin-top: ${(props) => (props.marginTop ? "10px" : "0px")};
   &:hover {
     font-weight: bold;
     font-size: 1em;
@@ -93,13 +105,4 @@ export const GoUpButton = styled.a`
   align-items: center;
   border: none;
   font-size: 1em;
-`;
-
-export const SideBySide = styled.div`
-  margin-top: 50px;
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 50px;
 `;

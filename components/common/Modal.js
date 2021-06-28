@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import { Button } from "./StyledComponents/Styles";
+import { Button, FeaturedLiCard } from "./StyledComponents/Styles";
 
 const Modal = ({ show, onClose, children, title, data }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -48,7 +48,6 @@ const Modal = ({ show, onClose, children, title, data }) => {
           >
             <b>Curso de microblading {name}</b>
           </h4>
-          <br />
           <span>
             <b>Disponibilidad: </b>
             {disponibilidad === true ? "Si" : "No"}
@@ -106,6 +105,17 @@ const Modal = ({ show, onClose, children, title, data }) => {
   }
 };
 
+const Featured = styled.div`
+  background-color: #2997ff;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 25px 25px 0px 0px;
+  font-size: 0.7em;
+  font-weight: normal;
+  padding: 2px 0px;
+`;
+
 const GiftWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -130,6 +140,7 @@ const StyledModalBody = styled.div`
   padding-top: 10px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const StyledModalHeader = styled.div`
@@ -152,11 +163,12 @@ const StyledModalHeader = styled.div`
 
 const StyledModal = styled.div`
   background: white;
-  width: 65%;
+  width: 70%;
   min-height: 300px;
   border-radius: 25px;
   padding: 2em;
 `;
+
 const StyledModalOverlay = styled.div`
   position: absolute;
   top: 0;

@@ -7,6 +7,7 @@ import {
   StyledUl,
   StyledLiCard,
   GoUpButton,
+  FeaturedLiCard,
 } from "../../components/common/StyledComponents/Styles";
 import styled from "styled-components";
 import Modal from "../../components/common/Modal";
@@ -68,6 +69,11 @@ const cursodemicroblading = () => {
           <h4 style={{ paddingRight: "0.1em", paddingLeft: "0.1em" }}>
             {modalidad.name}
           </h4>
+          {modalidad.featured ? (
+            <FeaturedLiCard>★ Popular ★</FeaturedLiCard>
+          ) : (
+            ""
+          )}
         </StyledLiCard>
       </StyledA>
     );
@@ -75,10 +81,10 @@ const cursodemicroblading = () => {
 
   return (
     <Wrapper>
-      <CenterContent>
+      <CenterContent id="modalidades">
         <MainTitle>Curso de Microblading</MainTitle>
         <DetailsSection>
-          <h4 id="modalidades">Modalidades disponibles</h4>
+          <h4>Modalidades disponibles</h4>
           <small>👇 Haz click para ver detalle, fecha y valores👇</small>
           <StyledUl style={{ marginBottom: "50px" }}>{modalidadCards}</StyledUl>
           <hr />
