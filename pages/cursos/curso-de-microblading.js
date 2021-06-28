@@ -99,6 +99,7 @@ const cursodemicroblading = () => {
           </P>
           <br />
           <br />
+
           <hr />
           <h4>{curso.details.section1.heading}</h4>
           <StyledUlList>

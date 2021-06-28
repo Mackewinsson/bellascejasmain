@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { Button, FeaturedLiCard } from "./StyledComponents/Styles";
-
+import Image from "next/image";
 const Modal = ({ show, onClose, children, title, data }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const {
@@ -44,10 +44,19 @@ const Modal = ({ show, onClose, children, title, data }) => {
               textAlign: "center",
               display: "flex",
               justifyContent: "center",
+              marginBottom: "5px",
             }}
           >
             <b>Curso de microblading {name}</b>
           </h4>
+          {onlineCourse ? (
+            <small style={{ marginBottom: "1em", textAlign: "center" }}>
+              * Solo disponible en Chile
+            </small>
+          ) : (
+            ""
+          )}
+          <br />
           <span>
             <b>Disponibilidad: </b>
             {disponibilidad === true ? "Si" : "No"}
@@ -83,12 +92,25 @@ const Modal = ({ show, onClose, children, title, data }) => {
               <h5>🎉Curso online por 6 meses 🥳</h5>
             </GiftWrapper>
           ) : (
-            ""
+            <GiftWrapper>
+              <h4>Regalo 🎁</h4>
+              <h5>3 sesiones de preguntas en vivo con la profesora 🥳</h5>
+            </GiftWrapper>
           )}
           <ButtonWrapper>
-            <Button marginTop href={flow}>
-              Reservar cupo
-            </Button>
+            {onlineCourse ? (
+              <Button marginTop href={flow}>
+                Reservar cupo
+              </Button>
+            ) : (
+              <>
+                <Button marginTop href={flow}>
+                  Comprar curso
+                </Button>
+                <br />
+                <Image src="/img/webpay.png" width="70" height="40" />
+              </>
+            )}
           </ButtonWrapper>
         </StyledModalBody>
       </StyledModal>
@@ -123,6 +145,8 @@ const ButtonWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledModalBody = styled.div`
