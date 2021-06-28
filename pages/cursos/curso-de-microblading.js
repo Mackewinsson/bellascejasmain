@@ -88,6 +88,17 @@ const cursodemicroblading = () => {
           <small>👇 Haz click para ver detalle, fecha y valores👇</small>
           <StyledUl style={{ marginBottom: "50px" }}>{modalidadCards}</StyledUl>
           <hr />
+          <h4>Te explico de que se trata el curso 😊👇</h4>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/tzYylHyaerw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <br />
+          <br />
+          <hr />
           <h4>¿Qué es el microblading?</h4>
           <P>
             El microblading es la técnica de maquillaje semipermanente mas
@@ -99,7 +110,6 @@ const cursodemicroblading = () => {
           </P>
           <br />
           <br />
-
           <hr />
           <h4>{curso.details.section1.heading}</h4>
           <StyledUlList>
