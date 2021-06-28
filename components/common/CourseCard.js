@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   min-height: 300px;
   padding: 0px;
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-right: 20px;
   margin-left: 20px;
 `;
@@ -95,8 +95,6 @@ const CourseCard = ({ name, date, description, path, img }) => {
       </CardTitleContainer>
       <CardBody>
         <p>{description}</p>
-        <b>Fecha:</b>
-        <small>{date}</small>
         <LinkWrap>
           <Link href={path}>{"> Ver detalles"}</Link>
         </LinkWrap>

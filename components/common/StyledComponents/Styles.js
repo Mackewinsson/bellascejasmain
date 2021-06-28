@@ -12,12 +12,12 @@ export const MainTitle = styled.h1`
   font-weight: bold;
   margin-top: 50px;
   letter-spacing: 0.3em;
+  font-size: 1.5em;
 `;
 
 export const Subtitle = styled.h3`
   font-weight: 400;
   margin-top: 0;
-  text-transform: uppercase;
 `;
 
 export const CenterContent = styled.div`

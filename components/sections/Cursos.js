@@ -38,7 +38,7 @@ const CursosComponent = () => {
     <Wrapper id="cursos">
       <CenterContent>
         <MainTitle>MICROBLADING ACADEMY</MainTitle>
-        <Subtitle>Cursos presenciales</Subtitle>
+        <Subtitle>Cursos disponibles</Subtitle>
         <CardWrapper>{coursesCards}</CardWrapper>
       </CenterContent>
     </Wrapper>
