@@ -12,6 +12,10 @@
       "courseImage": "/img/neddle.png",
       "_ID": "cms",
       "details": {
+        "section0": {
+          "heading": "¿Qué es el microblading?",
+          "content": "El microblading es la técnica de maquillaje semipermanente mas demandada y lucrativa en la actualidad. En este curso aprenderás la técnica de microblading para la construcción parcial o total de cejas pelo a pelo. Mediante un lenguaje ameno y cercano podrás ir descubriendo cada una de las secciones de aprendizaje que hemos diseñado especialmente para ti"
+        },
         "section1": {
           "heading": "¿Para quien es este curso?",
           "bullets": [
@@ -161,6 +165,10 @@
       "courseImage": "/img/cube.png",
       "_ID": "cmols",
       "details": {
+        "section0": {
+          "heading": "¿Qué es el microblading?",
+          "content": "El Microblading es la técnica de maquillaje semipermanente más demandada y lucrativa en la actualidad en este curso aprenderás la técnica de Microblading para el delineado y relleno de labios y ojos. Mediante un lenguaje ameno y cercano podrás ir descubriendo cada una de las secciones de aprendizaje que hemos diseñado especialmente para ti"
+        },
         "section1": {
           "heading": "¿Para quien es este curso?",
           "bullets": [
@@ -188,15 +196,15 @@
         "section3": {
           "heading": "¿Qué incluye el kit?",
           "bullets": [
-            "1 tebori",
+            "Tebori",
             "10 filos",
-            "1 piel sintética",
-            "1 pigmento negro",
-            "1 pigmento rojo",
-            "1 pie de metro",
-            "1 marcador para medidas  rojo",
-            "1 marcador para medidas negro",
-            "1 marcador gel blanco"
+            "Piel sintética",
+            "Pigmento negro",
+            "Pigmento rojo",
+            "Pie de metro",
+            "Marcador para medidas  rojo",
+            "Marcador para medidas negro",
+            "Marcador gel blanco"
           ]
         }
       },

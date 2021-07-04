@@ -98,15 +98,8 @@ const Curso = ({ data }) => {
           <br />
           <br />
           <hr />
-          <h4>¿Qué es el microblading?</h4>
-          <P>
-            El microblading es la técnica de maquillaje semipermanente mas
-            demandada y lucrativa en la actualidad. En este curso aprenderás la
-            técnica de microblading para la construcción parcial o total de
-            cejas pelo a pelo. Mediante un lenguaje ameno y cercano podrás ir
-            descubriendo cada una de las secciones de aprendizaje que hemos
-            diseñado especialmente para ti
-          </P>
+          <h4>{curso.details.section0.heading}</h4>
+          <P>{curso.details.section0.content}</P>
           <br />
           <br />
           <hr />
