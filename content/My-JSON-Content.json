@@ -157,7 +157,7 @@
       "place": "Santiago",
       "description": "Curso presencial y online donde sigues avanzando en tu formacion de microblading para delineado de ojos y labios",
       "teacher": "Yulexi Marquez",
-      "path": "cursos/curso-de-microblading-ojos-y-labios",
+      "path": "cursos/curso-de-microblading-ojos-y-labios#modalidades",
       "courseImage": "/img/cube.png",
       "_ID": "cmols",
       "details": {

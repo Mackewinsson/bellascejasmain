@@ -1,7 +1,7 @@
 import React from "react";
 
 const cursodemicrobladingenconcepcion = () => {
-  return <div>concepcion</div>;
+  return <div>Aqui va el curos de concepcion</div>;
 };
 
 export default cursodemicrobladingenconcepcion;
