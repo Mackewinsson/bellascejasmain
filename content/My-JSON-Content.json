@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": "5401",
-      "name": "Microblading",
+      "name": "Curso de Microblading",
       "price": "Depende de la modalidad",
       "date": "(Sujeto a cambios por Cuarentena COVID19)",
       "place": "Santiago",
@@ -76,7 +76,7 @@
           "bullets": [
             "Todos los beneficios ONLINE PRO",
             "Dos días de practicas presenciales con la profesora",
-            "Asesoría directa via whatsapp y llamadas",
+            "Acompañamiento via whatsapp",
             "Diploma de certificación en microblading",
             "Diploma de certificación en asepsia",
             "Kit con Materiales",
@@ -99,7 +99,7 @@
           "bullets": [
             "Todos los beneficios anteriores",
             "Dos días de practicas presenciales con la profesora",
-            "Asesoría directa via whatsapp y llamadas",
+            "Acompañamiento via whatsapp",
             "Diploma de certificación en microblading",
             "Diploma de certificación en asepsia",
             "Kit con Materiales",
@@ -151,7 +151,7 @@
     },
     {
       "id": "5402",
-      "name": "Microblading ojos y labios",
+      "name": "Curso de Microblading en ojos y labios",
       "price": "Depende de la modalidad",
       "date": "Febrero 2021",
       "place": "Santiago",
@@ -164,9 +164,9 @@
         "section1": {
           "heading": "¿Para quien es este curso?",
           "bullets": [
-            "Emprendedoras y emprendedores que quieran aprender un oficio lucrativo y GANAR DINERO.",
-            "Profesionales de la belleza que quieran ampliar sus conocimientos.",
-            "Personas que quieren aprender nuevas tendencias del maquillaje permanente."
+            "Personas que quieran aprender un oficio lucrativo y demandado para aumentar sus ingresos y cambiar su vida",
+            "Artistas del microblading, micropigmnetacion o afines que ya hayan completado su curso de microblading basico",
+            "Profesionales del microblading y la micropigmentación que esten trabajando y quieran ampliar sus conocimientos y certificarse"
           ]
         },
         "section2": {
@@ -206,18 +206,17 @@
           "name": "Presencial",
           "disponibilidad": false,
           "featured": true,
-          "_ID": "grupalgold",
-          "date": "Por reserva",
-          "place": "Wework Vivo Imperio, Santiago Centro",
+          "_ID": "Presencial",
+          "date": "7 y 8 de Agosto 2021",
+          "place": "Sede Bellas Cejas",
           "time": "9am a 6pm",
-          "daysOfAccess": "2 días presencial + 3 meses acceso online",
-          "maxStudents": 8,
+          "daysOfAccess": "2 días presencial",
+          "maxStudents": 5,
           "price": "800.000",
           "onlineCourse": true,
           "bullets": [
-            "Todos los beneficios ONLINE PRO",
             "Dos días de practicas presenciales con la profesora",
-            "Asesoría directa via whatsapp y llamadas",
+            "Acompañamiento via whatsapp",
             "Diploma de certificación en microblading",
             "Diploma de certificación en asepsia",
             "Kit con Materiales",
@@ -230,16 +229,15 @@
           "featured": false,
           "_ID": "oneonone",
           "date": "Por reserva",
-          "place": "Wework Vivo Imperio, Santiago Centro",
+          "place": "Sede Bellas Cejas",
           "time": "9am a 6pm",
-          "daysOfAccess": "2 dias presencial + 3 meses acceso online",
+          "daysOfAccess": "2 dias presencial",
           "maxStudents": 2,
           "price": "1.500.000",
           "onlineCourse": true,
           "bullets": [
-            "Todos los beneficios anteriores",
             "Dos días de practicas presenciales con la profesora",
-            "Asesoría directa via whatsapp y llamadas",
+            "Acompañamiento via whatsapp",
             "Diploma de certificación en microblading",
             "Diploma de certificación en asepsia",
             "Kit con Materiales",

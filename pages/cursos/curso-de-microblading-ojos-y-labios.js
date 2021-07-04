@@ -1,7 +1,9 @@
 import React from "react";
+import coursesData from "../../content/My-JSON-Content.json";
+import Curso from "../../components/common/Curso";
 
 const cursodemicrobladingojosylabios = () => {
-  return <div>curso de microblading ojos y labios</div>;
+  return <Curso data={coursesData.courses[1]} />;
 };
 
 export default cursodemicrobladingojosylabios;

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { Button, FeaturedLiCard } from "./StyledComponents/Styles";
 import Image from "next/image";
+
 const Modal = ({ show, onClose, children, title, data }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const {
@@ -47,7 +48,7 @@ const Modal = ({ show, onClose, children, title, data }) => {
               marginBottom: "5px",
             }}
           >
-            <b>Curso de microblading {name}</b>
+            <b>Modalidad {name}</b>
           </h4>
           {onlineCourse ? (
             <small style={{ marginBottom: "1em", textAlign: "center" }}>
