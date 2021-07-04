@@ -60,7 +60,15 @@ const Modal = ({ show, onClose, children, title, data }) => {
           <br />
           <span>
             <b>Disponibilidad: </b>
-            {disponibilidad === true ? "Si" : "No"}
+            {disponibilidad === true ? (
+              <span style={{ color: "green", fontWeight: "bold" }}>
+                Disponible
+              </span>
+            ) : (
+              <span style={{ color: "red", fontWeight: "bold" }}>
+                No disponible
+              </span>
+            )}
           </span>
           <span>
             <b>Fecha: </b>

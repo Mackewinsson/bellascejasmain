@@ -89,7 +89,7 @@
         },
         {
           "name": "Personalizado",
-          "disponibilidad": false,
+          "disponibilidad": true,
           "featured": false,
           "date": "Por reserva",
           "_ID": "oneonone",
@@ -248,6 +248,108 @@
             "Acompañamiento via whatsapp",
             "Diploma de certificación en microblading",
             "Diploma de certificación en asepsia",
+            "Kit con Materiales",
+            "Coffee Break e hidratación"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5404",
+      "name": "Extensiones de Pestañas",
+      "price": "Depende de la modalidad",
+      "date": "Proximamente 2021",
+      "place": "Santiago",
+      "description": "Curso presencial, practico con kit y materiales incluidos",
+      "teacher": "Yulexi Marquez",
+      "path": "cursos/curso-de-microblading#modalidades",
+      "courseImage": "/img/ring.png",
+      "path": "cursos/curso-de-extensiones-de-pestanas",
+      "_ID": "cep",
+      "details": {
+        "section0": {
+          "heading": "¿De qué se trata este curso?",
+          "content": ""
+        },
+        "section1": {
+          "heading": "¿Para quien es este curso?",
+          "bullets": [
+            "Emprendedoras y emprendedores que quieran aprender un oficio lucrativo y GANAR DINERO.",
+            "Profesionales de la belleza que quieran ampliar sus conocimientos.",
+            "Personas que quieren aprender nuevas tendencias del maquillaje permanente."
+          ]
+        },
+        "section2": {
+          "heading": "¿Qué aprenderás?",
+          "bullets": [
+            "Microblading técnica pelo a pelo.",
+            "Microblading técnica shadow.",
+            "Bioseguridad y asepsia.",
+            "Diseño de cejas desde cero.",
+            "Colorimetria para pigmentación de cejas.",
+            "Materiales",
+            "Pigmentos utilizados",
+            "Marco teorico",
+            "Cuanto cobrar por tus servicios.",
+            "Marketing basico de servicios."
+          ]
+        },
+        "section3": {
+          "heading": "¿Qué incluye el kit?",
+          "bullets": [
+            "Microblading técnica pelo a pelo.",
+            "Anillos portapigmentos",
+            "Pigmento Biomaser",
+            "Microagujas",
+            "Tebori o plumilla",
+            "Piel sintética",
+            "Lápiz dematografico",
+            "Pie de metro",
+            "Bata desechable",
+            "Guantes",
+            "Gorro",
+            "Mascarilla",
+            "Corta cartón",
+            "Microaplicador",
+            "Consentimiento informado",
+            "Material escrito para soporte"
+          ]
+        }
+      },
+
+      "modalidades": [
+        {
+          "name": "Presencial",
+          "disponiblidad": false,
+          "featured": true,
+          "date": "Por reserva",
+          "place": "Sede Bellas Cejas",
+          "time": "9am a 6pm",
+          "daysOfAccess": "2 días presencial",
+          "maxStudents": 4,
+          "price": "300.000",
+          "bullets": [
+            "Dos días de practicas presenciales con la profesora",
+            "Acompañamiento via whatsapp",
+            "Diploma de certificación",
+            "Kit con Materiales",
+            "Coffee Break e hidratación"
+          ]
+        },
+        {
+          "name": "Personalizado",
+          "disponiblidad": false,
+          "featured": false,
+          "date": "Por reserva",
+          "place": "Sede Bellas Cejas",
+          "time": "9am a 6pm",
+          "daysOfAccess": "2 dias presencial",
+          "maxStudents": 2,
+          "price": "500.000",
+          "bullets": [
+            "Dos días de practicas presenciales con la profesora",
+            "Acompañamiento via whatsapp",
+            "Diploma de certificación",
             "Kit con Materiales",
             "Coffee Break e hidratación"
           ]
