@@ -157,7 +157,7 @@
       "id": "5402",
       "name": "Curso de Microblading en ojos y labios",
       "price": "Depende de la modalidad",
-      "date": "Febrero 2021",
+      "date": "Agosto 2021",
       "place": "Santiago",
       "description": "Curso presencial y online donde sigues avanzando en tu formacion de microblading para delineado de ojos y labios",
       "teacher": "Yulexi Marquez",
@@ -212,7 +212,7 @@
       "modalidades": [
         {
           "name": "Presencial",
-          "disponibilidad": false,
+          "disponibilidad": true,
           "featured": true,
           "_ID": "Presencial",
           "date": "7 y 8 de Agosto 2021",
