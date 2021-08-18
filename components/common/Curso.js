@@ -122,11 +122,17 @@ const Curso = ({ data }) => {
   return (
     <Wrapper>
       <CenterContent id="modalidades">
+        <br />
+        <br />
         <MainTitleCourse>{curso.name}</MainTitleCourse>
         <DetailsSection>
-          <StyledH4>Modalidades disponibles</StyledH4>
-          <small>👇 Haz click para ver detalle, fecha y valores👇</small>
-          <StyledUl style={{ marginBottom: "50px" }}>{modalidadCards}</StyledUl>
+          <SectionWrapper>
+            <StyledH4>Modalidades disponibles</StyledH4>
+            <small>👇 Haz click para ver detalle, fecha y valores👇</small>
+            <StyledUl style={{ marginBottom: "50px" }}>
+              {modalidadCards}
+            </StyledUl>
+          </SectionWrapper>
           <hr />
           <SectionWrapper>
             <StyledH4>Te explico de que se trata el curso 😊👇</StyledH4>
