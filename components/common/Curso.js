@@ -77,7 +77,6 @@ const VideoWrapper = styled.div`
     width: 100%;
     height: 720px;
     justify-content: center;
-    background-color: red;
   }
 
   > iframe {
@@ -182,7 +181,7 @@ const Curso = ({ data }) => {
           </SectionWrapper>
           <hr />
           <SectionWrapper>
-            <h4>Instrucciones para reservar</h4>
+            <StyledH4>Instrucciones para reservar</StyledH4>
             <StyledUlList style={{ listStyle: "decimal" }}>
               <li>
                 Leer los detalles de la modalidad que mas te acomode, es decir;
@@ -192,8 +191,13 @@ const Curso = ({ data }) => {
                 Cuando estes lista para reservar, dentro de cada modalidad hay
                 un boton que dice <b>reservar cupo</b>. debes hacer click ahi.
               </li>
-              <li>Luego llegaras a la pasarela de pago FLOW / WEBPAY.</li>
-              <Image src="/img/webpay.png" width="70" height="40" />
+              <li>
+                <span style={{ marginRight: "20px" }}>
+                  Luego llegaras a la pasarela de pago FLOW / WEBPAY.
+                </span>
+                <Image src="/img/webpay.png" width="70" height="40" />
+              </li>
+
               <li>Elige tu forma de pago preferida y sigue los pasos.</li>
               <li>
                 Una vez completada la compra debes tomar una captura de
