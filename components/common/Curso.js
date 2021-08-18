@@ -19,6 +19,12 @@ const StyledA = styled.a`
   text-decoration: none;
 `;
 
+const MainTitleCourse = styled.h1`
+  @media (min-width: 768px) {
+    margin-top: 100px;
+    font-size: 4em;
+  }
+`;
 const DetailsSection = styled.div``;
 const P = styled.p`
   text-align: justify;
@@ -27,7 +33,11 @@ const P = styled.p`
 const StyledUlList = styled.ul`
   padding-left: 20px;
   text-align: left;
-
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   > li {
     margin-top: 15px;
   }
@@ -38,6 +48,9 @@ const GoUpWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media (min-width: 768px) {
+    width: 20%;
+  }
 `;
 
 const SideBySide = styled.div`
@@ -47,6 +60,35 @@ const SideBySide = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-bottom: 50px;
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+const StyledH4 = styled.h4`
+  @media (min-width: 768px) {
+    font-size: 2em;
+  }
+`;
+
+const VideoWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: 720px;
+    justify-content: center;
+    background-color: red;
+  }
+
+  > iframe {
+    width: 100%;
+  }
+`;
+
+const SectionWrapper = styled.div`
+  @media (min-width: 768px) {
+    padding-bottom: 50px;
+  }
 `;
 
 const Curso = ({ data }) => {
@@ -81,87 +123,92 @@ const Curso = ({ data }) => {
   return (
     <Wrapper>
       <CenterContent id="modalidades">
-        <MainTitle>{curso.name}</MainTitle>
+        <MainTitleCourse>{curso.name}</MainTitleCourse>
         <DetailsSection>
-          <h4>Modalidades disponibles</h4>
+          <StyledH4>Modalidades disponibles</StyledH4>
           <small>👇 Haz click para ver detalle, fecha y valores👇</small>
           <StyledUl style={{ marginBottom: "50px" }}>{modalidadCards}</StyledUl>
           <hr />
-          <h4>Te explico de que se trata el curso 😊👇</h4>
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/tzYylHyaerw"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-          <br />
-          <br />
+          <SectionWrapper>
+            <StyledH4>Te explico de que se trata el curso 😊👇</StyledH4>
+            <VideoWrapper>
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/tzYylHyaerw"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </VideoWrapper>
+          </SectionWrapper>
           <hr />
-          <h4>{curso.details.section0.heading}</h4>
-          <P>{curso.details.section0.content}</P>
-          <br />
-          <br />
+          <SectionWrapper>
+            <StyledH4>{curso.details.section0.heading}</StyledH4>
+            <P>{curso.details.section0.content}</P>
+          </SectionWrapper>
           <hr />
-          <h4>{curso.details.section1.heading}</h4>
-          <StyledUlList>
-            {curso.details.section1.bullets.map((el, i) => {
-              return (
-                <li key={el} className="text-justify">
-                  {el}
-                </li>
-              );
-            })}
-            <br />
-            <br />
-            <hr />
-          </StyledUlList>
-          <h4>{curso.details.section2.heading}</h4>
-          <StyledUlList>
-            {curso.details.section2.bullets.map((el, i) => {
-              return <li key={el}>{el}</li>;
-            })}
-          </StyledUlList>
-          <br />
-          <br />
+          <SectionWrapper>
+            <StyledH4>{curso.details.section1.heading}</StyledH4>
+            <StyledUlList>
+              {curso.details.section1.bullets.map((el, i) => {
+                return (
+                  <li key={el} className="text-justify">
+                    {el}
+                  </li>
+                );
+              })}
+            </StyledUlList>
+          </SectionWrapper>
           <hr />
-          <h4>{curso.details.section3.heading}</h4>
-          <StyledUlList>
-            {curso.details.section3.bullets.map((el) => {
-              return <li key={el}>{el}</li>;
-            })}
-          </StyledUlList>
-          <small>
-            * El kit esta incluido en modalidad presencial y personalizado
-          </small>
-          <br />
-          <br />
+          <SectionWrapper>
+            <StyledH4>{curso.details.section2.heading}</StyledH4>
+            <StyledUlList>
+              {curso.details.section2.bullets.map((el, i) => {
+                return <li key={el}>{el}</li>;
+              })}
+            </StyledUlList>
+          </SectionWrapper>
           <hr />
-          <h4>Instrucciones para reservar</h4>
-          <StyledUlList style={{ listStyle: "decimal" }}>
-            <li>
-              Leer los detalles de la modalidad que mas te acomode, es decir;
-              presencial, personalizado, online y online pro
-            </li>
-            <li>
-              Cuando estes lista para reservar, dentro de cada modalidad hay un
-              boton que dice <b>reservar cupo</b>. debes hacer click ahi.
-            </li>
-            <li>Luego llegaras a la pasarela de pago FLOW / WEBPAY.</li>
-            <Image src="/img/webpay.png" width="70" height="40" />
-            <li>Elige tu forma de pago preferida y sigue los pasos.</li>
-            <li>
-              Una vez completada la compra debes tomar una captura de pantalla.
-            </li>
-            <li>
-              Enviar captura de pantalla junto con tu nombre completo, rut y
-              correo electronico a este numero: +56949363030.
-            </li>
-            <li>
-              Si ya terminaste de hacer el pago o si tienes dudas puedes usar
-              este boton de asistencia para ser atendida
-            </li>
-          </StyledUlList>
+          <SectionWrapper>
+            <StyledH4>{curso.details.section3.heading}</StyledH4>
+            <StyledUlList>
+              {curso.details.section3.bullets.map((el) => {
+                return <li key={el}>{el}</li>;
+              })}
+            </StyledUlList>
+            <small>
+              * El kit esta incluido en modalidad presencial y personalizado
+            </small>
+          </SectionWrapper>
+          <hr />
+          <SectionWrapper>
+            <h4>Instrucciones para reservar</h4>
+            <StyledUlList style={{ listStyle: "decimal" }}>
+              <li>
+                Leer los detalles de la modalidad que mas te acomode, es decir;
+                presencial, personalizado, online y online pro
+              </li>
+              <li>
+                Cuando estes lista para reservar, dentro de cada modalidad hay
+                un boton que dice <b>reservar cupo</b>. debes hacer click ahi.
+              </li>
+              <li>Luego llegaras a la pasarela de pago FLOW / WEBPAY.</li>
+              <Image src="/img/webpay.png" width="70" height="40" />
+              <li>Elige tu forma de pago preferida y sigue los pasos.</li>
+              <li>
+                Una vez completada la compra debes tomar una captura de
+                pantalla.
+              </li>
+              <li>
+                Enviar captura de pantalla junto con tu nombre completo, rut y
+                correo electronico a este numero: +56949363030.
+              </li>
+              <li>
+                Si ya terminaste de hacer el pago o si tienes dudas puedes usar
+                este boton de asistencia para ser atendida
+              </li>
+            </StyledUlList>
+          </SectionWrapper>
           <SideBySide>
             <Button
               target="_blank"
@@ -172,7 +219,6 @@ const Curso = ({ data }) => {
             </Button>
             <GoUpWrapper>
               <GoUpButton href="#modalidades">↑</GoUpButton>
-
               <small style={{ color: "lightgray", marginTop: "7px" }}>
                 Ir arriba
               </small>

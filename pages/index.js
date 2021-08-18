@@ -76,7 +76,9 @@ const StyledButton = styled.a`
     color: white;
     text-decoration: none;
   }
-
+  @media (min-width: 768px) {
+    width: 200px;
+  }
   @media (max-width: 768px) {
     font-size: 0.8em;
   }

@@ -13,7 +13,7 @@ const FooterArea = styled.footer`
   font-size: 0.8em;
 `;
 const FooterComponent = () => {
-  return <FooterArea>By Yulexi Marquez</FooterArea>;
+  return <FooterArea>By Yulexi Marquez & Mackewinsson P.</FooterArea>;
 };
 
 export default FooterComponent;
