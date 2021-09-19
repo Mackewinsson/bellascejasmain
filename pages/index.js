@@ -6,7 +6,12 @@ import ImageWrapperMobile from "../components/common/ImageWrapperMobile";
 import Cursos from "../components/sections/Cursos";
 
 const SectionWrapper = styled.div`
-  background-color: #2a2a2a;
+  @media (max-width: 768px) {
+    background-color: #2a2a2a;
+  }
+  background-image: url("/img/model.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -18,7 +23,6 @@ const CursosSection = styled.div`
 `;
 
 const StyledBody = styled.div`
-  background-color: #2a2a2a;
   padding-top: 15%;
   padding-right: 20%;
   padding-left: 20%;
@@ -113,6 +117,7 @@ const index = () => {
   return (
     <>
       <SectionWrapper>
+        {/* <Image src="/img/model.jpeg" alt="ring" layout="fill" /> */}
         <ImageWrapperMobile />
         <Ring>
           <Image src="/img/ring.png" alt="ring" width="200" height="200" />
