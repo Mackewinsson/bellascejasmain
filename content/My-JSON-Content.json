@@ -73,7 +73,7 @@
           "time": "9am a 6pm",
           "daysOfAccess": "2 días presencial",
           "maxStudents": 5,
-          "price": "800.000",
+          "price": "1500 USD",
           "onlineCourse": true,
           "flow": "https://www.flow.cl/btn.php?token=c9bqsi3",
 
@@ -97,7 +97,7 @@
           "time": "9am a 6pm",
           "daysOfAccess": "2 dias presencial",
           "maxStudents": 2,
-          "price": "1.000.000",
+          "price": "2000 USD",
           "onlineCourse": true,
           "flow": "https://www.flow.cl/btn.php?token=jgcrqva",
           "bullets": [
@@ -120,7 +120,7 @@
           "time": "Tu elijes",
           "daysOfAccess": "6 meses",
           "maxStudents": "Unlimited",
-          "price": "200.000",
+          "price": "500 USD",
           "onlineCourse": false,
           "flow": "https://www.flow.cl/btn.php?token=ucz0siv",
           "bullets": [
@@ -140,7 +140,7 @@
           "time": "Tu elijes",
           "daysOfAccess": "1 año",
           "maxStudents": "Unlimited",
-          "price": "300.000",
+          "price": "1000 USD",
           "onlineCourse": false,
           "flow": "https://www.flow.cl/btn.php?token=ag7rqm1",
           "bullets": [
