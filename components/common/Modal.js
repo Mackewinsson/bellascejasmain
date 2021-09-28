@@ -95,15 +95,16 @@ const Modal = ({ show, onClose, children, title, data }) => {
             {time}
           </span>
 
-          {onlineCourse ? (
+          {onlineCourse && (
             <GiftWrapper>
               <h4>Regalo 🎁</h4>
               <h5>🎉Curso online por 6 meses 🥳</h5>
             </GiftWrapper>
-          ) : (
+          )}
+          {name === "Online PRO" && (
             <GiftWrapper>
               <h4>Regalo 🎁</h4>
-              <h5>3 sesiones de preguntas en vivo con la profesora 🥳</h5>
+              <h5>Acompañamiento personalizado por 3 meses via whatsapp</h5>
             </GiftWrapper>
           )}
           <ButtonWrapper>
