@@ -220,7 +220,7 @@
           "time": "9am a 6pm",
           "daysOfAccess": "2 días presencial",
           "maxStudents": 5,
-          "price": "800.000",
+          "price": "2000 USD",
           "onlineCourse": true,
           "bullets": [
             "Dos días de practicas presenciales con la profesora",
@@ -241,7 +241,7 @@
           "time": "9am a 6pm",
           "daysOfAccess": "2 dias presencial",
           "maxStudents": 2,
-          "price": "1.500.000",
+          "price": "2500 USD",
           "onlineCourse": true,
           "bullets": [
             "Dos días de practicas presenciales con la profesora",
