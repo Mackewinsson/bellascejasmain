@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0";
+import NavLink from "./NavLink";
 
 const Nav = styled.nav`
   grid-area: header;
   width: 100%;
   height: 50px;
-  background-color: #2a2a2a;
+  background-color: ${(props) => (props.user ? "#00A7C2" : "#2a2a2a")};
 `;
 
 const Ul = styled.ul`
@@ -20,6 +21,7 @@ const Ul = styled.ul`
   list-style: none;
   margin: 0;
   height: 100%;
+  width: 40%;
   padding: 0px;
   @media (max-width: 768px) {
     padding: 0px;
@@ -28,6 +30,10 @@ const Ul = styled.ul`
   > li {
     font-weight: bold;
     display: flex;
+    height: 100%;
+    :hover {
+      border-bottom: 5px solid #fff;
+    }
   }
 
   > li:hover {
@@ -60,7 +66,19 @@ const ProfileImg = styled.img`
 `;
 
 const StyledATag = styled.a`
-  color: white;
+  display: flex;
+  color: ${(props) => (props.user ? "#fff" : "#ae9754")};
+  text-decoration: none;
+  :active {
+    color: #fff;
+  }
+  :hover {
+    color: #fff;
+  }
+`;
+
+const StyledATagLog = styled.a`
+  color: ${(props) => (props.user ? "#fff" : "#ae9754")};
   text-decoration: none;
 `;
 
@@ -80,48 +98,47 @@ const LogoutWrapper = styled.div`
   }
 `;
 
+//construir logged in nav
+
 const Navbar = () => {
   const { user, isLoading } = useUser();
-  console.log(user);
   return (
-    <Nav>
+    <Nav user={user}>
       <UlWrapper>
         <Ul>
           <li>
-            <Link href="/">
-              <span>Inicio</span>
-            </Link>
+            <NavLink href="/" name="Inicio" user={user} />
           </li>
           <li>
             {user ? (
-              <Link href="/academia">
-                <span style={{ color: "yellow" }}>Academia</span>
-              </Link>
+              <NavLink href="/academia" name="Academia" user={user} />
             ) : (
-              <Link href="/yuleximarquez">
-                <span>Yulexi Marquez</span>
-              </Link>
+              <NavLink
+                href="/yuleximarquez"
+                name="Yulexi Marquez"
+                user={user}
+              />
             )}
           </li>
           <li>
-            <StyledATag href="#cursos">
+            <StyledATag href="#cursos" user={user}>
               <span>Cursos</span>
             </StyledATag>
           </li>
           <li>
             {!isLoading && !user && (
-              <StyledATag href="/api/auth/login">
+              <StyledATag href="/api/auth/login" user={user}>
                 <small>Iniciar Sesion</small>
               </StyledATag>
             )}
             {user && (
               <LoginWrapper>
-                <StyledATag href="/api/auth/logout">
+                <StyledATagLog href="/api/auth/logout" user={user}>
                   <LogoutWrapper>
                     <small>Cerrar Sesion</small>
-                    <small>{user.name}</small>
+                    <small>{user.nickname}</small>
                   </LogoutWrapper>
-                </StyledATag>
+                </StyledATagLog>
                 {/* <ProfileImg src={user.picture} alt="Profile" /> */}
               </LoginWrapper>
             )}
