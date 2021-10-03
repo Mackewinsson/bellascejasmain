@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const Nav = styled.nav`
   grid-area: header;
@@ -12,15 +13,17 @@ const Nav = styled.nav`
 const Ul = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   color: white;
   font-size: small;
   list-style: none;
-  width: 40%;
-  padding-right: 50px;
   margin: 0;
   height: 100%;
+  padding: 0px;
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 
   > li {
     font-weight: bold;
@@ -43,6 +46,17 @@ const UlWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   height: 100%;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+const ProfileImg = styled.img`
+  display: flex;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 5px;
 `;
 
 const StyledATag = styled.a`
@@ -50,7 +64,25 @@ const StyledATag = styled.a`
   text-decoration: none;
 `;
 
+const LoginWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const LogoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > small :last-child {
+    font-weight: 100;
+    font-size: 0.7em;
+  }
+`;
+
 const Navbar = () => {
+  const { user, isLoading } = useUser();
+  console.log(user);
   return (
     <Nav>
       <UlWrapper>
@@ -61,14 +93,38 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/yuleximarquez">
-              <span>Yulexi Marquez</span>
-            </Link>
+            {user ? (
+              <Link href="/academia">
+                <span style={{ color: "yellow" }}>Academia</span>
+              </Link>
+            ) : (
+              <Link href="/yuleximarquez">
+                <span>Yulexi Marquez</span>
+              </Link>
+            )}
           </li>
           <li>
             <StyledATag href="#cursos">
               <span>Cursos</span>
             </StyledATag>
+          </li>
+          <li>
+            {!isLoading && !user && (
+              <StyledATag href="/api/auth/login">
+                <small>Iniciar Sesion</small>
+              </StyledATag>
+            )}
+            {user && (
+              <LoginWrapper>
+                <StyledATag href="/api/auth/logout">
+                  <LogoutWrapper>
+                    <small>Cerrar Sesion</small>
+                    <small>{user.name}</small>
+                  </LogoutWrapper>
+                </StyledATag>
+                {/* <ProfileImg src={user.picture} alt="Profile" /> */}
+              </LoginWrapper>
+            )}
           </li>
         </Ul>
       </UlWrapper>
