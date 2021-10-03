@@ -2,7 +2,7 @@ import React from "react";
 import {
   Wrapper,
   CenterContent,
-} from "../components/common/StyledComponents/Styles";
+} from "../../components/common/StyledComponents/Styles";
 import styled from "styled-components";
 import { InlineWidget } from "react-calendly";
 
@@ -16,12 +16,11 @@ const ProfilePhoto = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 `;
-
 const yuleximarquez = () => {
   return (
     <Wrapper>
       <CenterContent>
-        <ProfilePhoto imageUrl="/img/yulexiperfil.png" />
+        <ProfilePhoto imageUrl={"/img/yulexiperfil.png"} />
         <InlineWidget url="https://calendly.com/yuleximarquez/microblading-a-domicilio" />
       </CenterContent>
     </Wrapper>
