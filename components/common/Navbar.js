@@ -61,8 +61,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
-              <span>Profesora</span>
+            <Link href="/yuleximarquez">
+              <span>Yulexi Marquez</span>
             </Link>
           </li>
           <li>
