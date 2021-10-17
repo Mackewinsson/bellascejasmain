@@ -94,8 +94,6 @@ const yuleximarquez = () => {
             <Image
               src="/img/IMG_2430.jpg"
               alt="ring"
-              // width="1141"
-              // height="766"
               layout="fill"
               objectFit="cover"
             />
@@ -105,8 +103,6 @@ const yuleximarquez = () => {
               <Image
                 src="/img/IMG_8324.jpg"
                 alt="ring"
-                // width="1141"
-                // height="766"
                 layout="fill"
                 objectFit="cover"
               />
@@ -115,8 +111,6 @@ const yuleximarquez = () => {
               <Image
                 src="/img/IMG_9383.jpg"
                 alt="ring"
-                // width="1141"
-                // height="766"
                 layout="fill"
                 objectFit="cover"
               />
