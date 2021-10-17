@@ -106,3 +106,45 @@ export const GoUpButton = styled.a`
   border: none;
   font-size: 1em;
 `;
+
+export const ColorTitle = styled.h4`
+  color: #ae9754;
+  margin-bottom: 0px;
+`;
+
+export const SectionSubtile = styled.p`
+  color: black;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 0.8em;
+`;
+
+export const StyledButton = styled.a`
+  width: 40%;
+  border: 1px solid white;
+  background-color: ${(props) => (props.bg ? props.bg : "transparent")};
+  color: ${(props) => (props.color ? props.color : "white")};
+  border-radius: 50px;
+  padding: 1em 1em;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  border-color: ${(props) => (props.color ? props.color : "white")};
+
+  &:hover {
+    color: #ae9754;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  &:visited {
+    color: #ae9754;
+    text-decoration: none;
+  }
+  @media (min-width: 768px) {
+    width: 200px;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.8em;
+  }
+`;
