@@ -119,6 +119,7 @@ const yuleximarquez = () => {
             <Point>Master en microblading en cejas, ojos y labios</Point>
             <Point>Master en micropigmentacion</Point>
             <Point>20 años de experiencia</Point>
+            <Point>Tecnica de microblading sin dolor</Point>
           </Ul>
           <ButtonWrapper>
             <StyledButton
