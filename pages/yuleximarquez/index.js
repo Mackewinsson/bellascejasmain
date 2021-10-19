@@ -13,8 +13,8 @@ import Image from "next/image";
 const ProfilePhoto = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 70px;
-  height: 70px;
+  width: ${(props) => (props.size ? props.size : "70px")};
+  height: ${(props) => (props.size ? props.size : "70px")};
   border-radius: 50%;
   background-image: url(${(props) => (props.imageUrl ? props.imageUrl : "")});
   background-repeat: no-repeat;
@@ -83,6 +83,24 @@ const Point = styled.li`
   }
 `;
 
+const YulexiMarquez = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+`;
+
+const NameWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  > h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+`;
+
+const Ul = styled(PointList)``;
+
 const yuleximarquez = () => {
   return (
     <>
@@ -90,6 +108,31 @@ const yuleximarquez = () => {
         <SectionWrapper>
           <ColorTitle>Microblading</ColorTitle>
           <SectionSubtile>Tus cejas siempre perfectas</SectionSubtile>
+          <YulexiMarquez>
+            <ProfilePhoto imageUrl={"/img/yulexiperfil.png"} size="100px" />
+            <NameWrapper>
+              <h4>Yulexi Marquez 🇻🇪</h4>
+              <small>Microblading Master</small>
+            </NameWrapper>
+          </YulexiMarquez>
+          <Ul>
+            <Point>Master en microblading en cejas, ojos y labios</Point>
+            <Point>Master en micropigmentacion</Point>
+            <Point>20 años de experiencia</Point>
+          </Ul>
+          <ButtonWrapper>
+            <StyledButton
+              color="black"
+              href="https://instagram.com/bellascejascl"
+            >
+              Mis trabajos
+            </StyledButton>
+            <StyledButton color="#ae9754" bg="#2a2a2a" href="#reserva">
+              Tomar cita
+            </StyledButton>
+          </ButtonWrapper>
+          <br />
+          <br />
           <ImageCard>
             <Image
               src="/img/IMG_2430.jpg"
@@ -116,22 +159,29 @@ const yuleximarquez = () => {
               />
             </GalleryImg>
           </GalleryWrapper>
+          <br />
+          <h4>El microblading es para ti si...</h4>
           <PointList>
-            <Point>Primer punto</Point>
-            <Point>Primer punto</Point>
-            <Point>Primer punto</Point>
+            <Point>Tienes las cejas despobladas de cabello</Point>
+            <Point>Tienes alopesia parcial o total en tus cejas</Point>
+            <Point>Quieres lucir unas cejas hermosas y siempre listas</Point>
           </PointList>
           <ButtonWrapper>
-            <StyledButton color="black">Mas info</StyledButton>
-            <StyledButton color="#ae9754" bg="#2a2a2a">
+            <StyledButton color="black" href="https://wa.link/1bm6yt">
+              Mas info
+            </StyledButton>
+            <StyledButton color="#ae9754" bg="#2a2a2a" href="#reserva">
               Tomar cita
             </StyledButton>
           </ButtonWrapper>
         </SectionWrapper>
-        <CenterContent>
+        <CenterContent id="reserva">
           <ProfilePhoto imageUrl={"/img/yulexiperfil.png"} />
           <InlineWidget url="https://calendly.com/yuleximarquez/microblading-a-domicilio" />
         </CenterContent>
+        <br />
+        <br />
+        <br />
       </Wrapper>
     </>
   );
