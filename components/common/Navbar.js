@@ -125,24 +125,6 @@ const Navbar = () => {
               <span>Cursos</span>
             </StyledATag>
           </li>
-          <li>
-            {!isLoading && !user && (
-              <StyledATag href="/api/auth/login" user={user}>
-                <small>Iniciar Sesion</small>
-              </StyledATag>
-            )}
-            {user && (
-              <LoginWrapper>
-                <StyledATagLog href="/api/auth/logout" user={user}>
-                  <LogoutWrapper>
-                    <small>Cerrar Sesion</small>
-                    <small>{user.nickname}</small>
-                  </LogoutWrapper>
-                </StyledATagLog>
-                {/* <ProfileImg src={user.picture} alt="Profile" /> */}
-              </LoginWrapper>
-            )}
-          </li>
         </Ul>
       </UlWrapper>
     </Nav>
