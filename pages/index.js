@@ -4,6 +4,80 @@ import styled from "styled-components";
 import Image from "next/image";
 import ImageWrapperMobile from "../components/common/ImageWrapperMobile";
 import Cursos from "../components/sections/Cursos";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import firebase from "../services/firebase/firebaseClient";
+
+const auth = getAuth(firebase);
+
+const login = () => {
+  signInWithEmailAndPassword(auth, "mackewinsson@gmail.com", "123456");
+};
+
+const logout = () => {
+  signOut(auth);
+};
+
+const index = () => {
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user, loading, error);
+
+  if (loading) {
+    return (
+      <div>
+        <p>Initialising User...</p>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
+
+  if (user) {
+    return (
+      <div>
+        <p>Current User: {user.email}</p>
+        <button onClick={logout}>Log out</button>
+      </div>
+    );
+  }
+  return (
+    <>
+      <button onClick={login}>Log in</button>;
+      {/* <SectionWrapper>
+        <ImageWrapperMobile />
+        <Ring>
+          <Image src="/img/ring.png" alt="ring" width="200" height="200" />
+        </Ring>
+        <Cone>
+          <Image src="/img/cone.png" alt="cone" width="200" height="200" />
+        </Cone>
+        <Cube>
+          <Image src="/img/cube.png" alt="cube" width="200" height="200" />
+        </Cube>
+        <Wrapper>
+          <StyledBody>
+            <StyledTitle>
+              {" "}
+              Cambia tu vida
+              <br /> desde casa
+            </StyledTitle>
+            <StyledButton href="#cursos">Cursos disponibles</StyledButton>
+          </StyledBody>
+        </Wrapper>
+      </SectionWrapper>
+      <CursosSection>
+        <Cursos />
+      </CursosSection> */}
+    </>
+  );
+};
+
+export default index;
 
 const SectionWrapper = styled.div`
   @media (max-width: 768px) {
@@ -112,38 +186,3 @@ const Cube = styled.div`
     display: none;
   }
 `;
-
-const index = () => {
-  return (
-    <>
-      <SectionWrapper>
-        {/* <Image src="/img/model.jpeg" alt="ring" layout="fill" /> */}
-        <ImageWrapperMobile />
-        <Ring>
-          <Image src="/img/ring.png" alt="ring" width="200" height="200" />
-        </Ring>
-        <Cone>
-          <Image src="/img/cone.png" alt="cone" width="200" height="200" />
-        </Cone>
-        <Cube>
-          <Image src="/img/cube.png" alt="cube" width="200" height="200" />
-        </Cube>
-        <Wrapper>
-          <StyledBody>
-            <StyledTitle>
-              {" "}
-              Cambia tu vida
-              <br /> desde casa
-            </StyledTitle>
-            <StyledButton href="#cursos">Cursos disponibles</StyledButton>
-          </StyledBody>
-        </Wrapper>
-      </SectionWrapper>
-      <CursosSection>
-        <Cursos />
-      </CursosSection>
-    </>
-  );
-};
-
-export default index;
