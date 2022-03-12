@@ -8,10 +8,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import firebase from "../services/firebase/firebaseClient";
 
-//const auth = getAuth(firebase);
+const auth = getAuth(firebase);
 
 const login = () => {
-  //signInWithEmailAndPassword(auth, "mackewinsson@gmail.com", "123456");
+  signInWithEmailAndPassword(auth, "mackewinsson@gmail.com", "123456");
 };
 
 const logout = () => {
@@ -19,17 +19,17 @@ const logout = () => {
 };
 
 const index = () => {
-  //const [user, loading, error] = useAuthState({});
-  //console.log(user, loading, error);
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user, loading, error);
 
-  if (false) {
+  if (loading) {
     return (
       <div>
         <p>Initialising User...</p>
       </div>
     );
   }
-  if (false) {
+  if (error) {
     return (
       <div>
         <p>Error: {error}</p>
@@ -37,10 +37,10 @@ const index = () => {
     );
   }
 
-  if (true) {
+  if (user) {
     return (
       <div>
-        <p>Current User: JORGE</p>
+        <p>Current User: {user.email}</p>
         <button onClick={logout}>Log out</button>
       </div>
     );
