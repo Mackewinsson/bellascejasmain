@@ -1,6 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/common/Layout";
-import { UserProvider } from "@auth0/nextjs-auth0";
+import { AuthContextProvider } from "../context/authContext";
 
 const GlobalStyle = createGlobalStyle`
   html,body {
@@ -41,11 +41,11 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <UserProvider>
+        <AuthContextProvider>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </UserProvider>
+        </AuthContextProvider>
       </ThemeProvider>
     </>
   );

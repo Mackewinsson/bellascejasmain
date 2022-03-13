@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { useUser } from "@auth0/nextjs-auth0";
 import NavLink from "./NavLink";
 
 const Nav = styled.nav`
@@ -101,7 +100,7 @@ const LogoutWrapper = styled.div`
 //construir logged in nav
 
 const Navbar = () => {
-  const { user, isLoading } = useUser();
+  const user = "hola";
   return (
     <Nav user={user}>
       <UlWrapper>
