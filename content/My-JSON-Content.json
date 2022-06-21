@@ -129,27 +129,6 @@
             "Diploma de certificacion digital",
             "Materiales se venden por separado"
           ]
-        },
-        {
-          "name": "Online PRO",
-          "disponibilidad": true,
-          "featured": true,
-          "_ID": "onlinepro",
-          "date": "Acceso inmediato",
-          "place": "En linea",
-          "time": "Tu elijes",
-          "daysOfAccess": "1 año",
-          "maxStudents": "Unlimited",
-          "price": "800 USD",
-          "onlineCourse": false,
-          "flow": "https://www.flow.cl/btn.php?token=ag7rqm1",
-          "bullets": [
-            "Clases detalladas en video FullHD",
-            "10 Ejercicios practicos",
-            "Asesoria via whatsapp",
-            "Diploma de certificacion digital",
-            "Materiales se venden por separado"
-          ]
         }
       ]
     },
