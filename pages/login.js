@@ -1,54 +1,59 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import * as authActions from '../store/actions/auth';
 import {
   CenterContent,
   MainTitle,
 } from "../components/common/StyledComponents/Styles";
-import { useAuth } from "../context/authContext";
+import { useRouter } from 'next/router'
 
-const registro = () => {
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import {useDispatch, useSelector} from 'react-redux'
+
+const login = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.auth.isLoading);
+  const router = useRouter()
+  const user = useSelector(state => state.user.user);
+  const [email, setEmail] = useState("peds.gado@gmail.com");
+  const [password, setPassword] = useState("12345678");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(email, password);
+    dispatch(authActions.signin(email, password));
+    setEmail("")
+    setPassword("")
   };
 
-  useEffect(() => {}, []);
-  const { user } = useAuth();
+  useEffect(() => {
+    if (user && user.email) {
+      if (user.rol == "client") {
+        router.push("/")
+      } else router.push("/admin")
+    }
+  }, [user]);
+
+  if (isLoading) {
+    return <div style={{width: '100%', height: '100%', display: 'flex' ,justifyContent: 'center', alignItems: 'center', fontSize: 40}}>Loading...</div>
+  }
+
   return (
     <CenterContent>
-      <MainTitle>Registrate</MainTitle>
+      <MainTitle>Iniciar Sesión</MainTitle>
       <Form onSubmit={onSubmit}>
-        <label htmlFor="name">Nombre:</label>
-        <Input
-          type="text"
-          id="name"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label htmlFor="lastname">Apellido:</label>
-        <Input
-          type="text"
-          id="lastname"
-          name="lastname"
-          onChange={(e) => setLastname(e.target.value)}
-        />
         <label htmlFor="email">Email:</label>
         <Input
           type="email"
           id="email"
           name="email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="email">Create your password:</label>
+        <label htmlFor="email">Password:</label>
         <Input
           type="password"
           id="password"
           name="password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <SubmitButton type="submit" />
@@ -57,13 +62,13 @@ const registro = () => {
   );
 };
 
-export default registro;
+export default login;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   border: 1px solid lightgray;
-  width: 70%;
+  width: 60%;
   align-items: center;
   justify-content: center;
   height: 50%;

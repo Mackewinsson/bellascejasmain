@@ -1,6 +1,11 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/common/Layout";
 import { AuthContextProvider } from "../context/authContext";
+import store, {persistor} from "../store/store";
+import { Provider } from "react-redux";
+import { createWrapper } from 'next-redux-wrapper'
+import { PersistGate } from 'redux-persist/integration/react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GlobalStyle = createGlobalStyle`
   html,body {
@@ -36,17 +41,23 @@ const theme = {
   },
 };
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <AuthContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </AuthContextProvider>
-      </ThemeProvider>
-    </>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <AuthContextProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </AuthContextProvider>
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 }
+
+const makestore = () =>store;
+const wraper = createWrapper(makestore)
+export default wraper.withRedux(App)

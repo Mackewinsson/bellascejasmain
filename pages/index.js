@@ -4,8 +4,15 @@ import styled from "styled-components";
 import Image from "next/image";
 import ImageWrapperMobile from "../components/common/ImageWrapperMobile";
 import Cursos from "../components/sections/Cursos";
+import {useSelector} from 'react-redux';
+import { useRouter } from 'next/router';
 
 const index = () => {
+  const router = useRouter()
+  const user = useSelector(state => state.user.user);
+  if (user && user.email && user.rol == "admin") {
+    router.push("/admin")
+  }
   return (
     <>
       <SectionWrapper>

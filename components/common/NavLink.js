@@ -12,6 +12,7 @@ const SLink = styled.a`
 
 function NavLink({ href, name, user }) {
   // Must add passHref to Link
+  console.log(user)
   return (
     <Link href={href} passHref>
       <SLink user={user}>{name}</SLink>

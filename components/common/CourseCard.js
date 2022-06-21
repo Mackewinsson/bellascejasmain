@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { ALink } from "./StyledComponents/Styles";
 import Link from "next/link";
 import Image from "next/image";
 
