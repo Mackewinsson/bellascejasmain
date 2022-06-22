@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Container, Row, Col} from "react-bootstrap";
 import Sidebar from "../components/common/Side";
 import styled from "styled-components";
+import * as authActions from '../store/actions/auth';
+import {useDispatch, useSelector} from 'react-redux'
 
 const Logo = styled.div`
   margin-top: 20px;
@@ -14,7 +16,14 @@ const Logo = styled.div`
 `;
 
 const admin = () => {
-   
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.auth.isLoading);
+
+  useEffect(() => {
+    if (isLoading) {
+      dispatch(authActions.loadingOff());
+    }
+  }, [isLoading]);
 
     return (
         <>

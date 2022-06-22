@@ -2,6 +2,7 @@ export const SIGNIN = 'SIGNIN';
 export const SIGNOUT = 'SIGNOUT';
 export const SIGNIN_LOADING = 'SIGNIN_LOADING';
 export const SIGNIN_FAILED = 'SIGNIN_FAILED';
+export const LOADING_OFF = 'LOADING_OFF';
 
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 const auth = getAuth();
@@ -35,6 +36,10 @@ export const signin = (userId, password) => async dispatch => {
       },
     });
   }
+};
+
+export const loadingOff = () => async dispatch => {
+  dispatch({type: LOADING_OFF});
 };
 
 export const signout = () => async dispatch => {

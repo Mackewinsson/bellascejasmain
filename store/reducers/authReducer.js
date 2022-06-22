@@ -1,4 +1,4 @@
-import {SIGNIN_LOADING, SIGNIN_FAILED, SIGNIN, SIGNOUT} from '../actions/auth';
+import {SIGNIN_LOADING, SIGNIN_FAILED, SIGNIN, SIGNOUT, LOADING_OFF} from '../actions/auth';
 
 const initialState = {
   user: null,
@@ -12,14 +12,18 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload.user,
-        isSignedIn: true,
-        isLoading: false,
+        isSignedIn: true
       };
     case SIGNOUT:
       return {
         ...state,
         user: null,
         isSignedIn: false,
+        isLoading: false,
+      };
+    case LOADING_OFF:
+      return {
+        ...state,
         isLoading: false,
       };
     case SIGNIN_LOADING:
