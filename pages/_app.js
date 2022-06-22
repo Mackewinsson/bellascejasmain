@@ -1,6 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/common/Layout";
-import { AuthContextProvider } from "../context/authContext";
+import { AuthContextProvider, ProtectRoute } from "../context/authContext";
 import store, {persistor} from "../store/store";
 import { Provider } from "react-redux";
 import { createWrapper } from 'next-redux-wrapper'
@@ -32,7 +32,11 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: underline;
     }
   }
-
+  .sidebar {
+    min-height: 93.5vh !important;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
 `;
 
 const theme = {
@@ -48,9 +52,11 @@ function App({ Component, pageProps }) {
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <AuthContextProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <ProtectRoute>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </ProtectRoute>
           </AuthContextProvider>
         </ThemeProvider>
       </PersistGate>

@@ -8,11 +8,11 @@ import {useSelector} from 'react-redux';
 import { useRouter } from 'next/router';
 
 const index = () => {
-  const router = useRouter()
-  const user = useSelector(state => state.user.user);
-  if (user && user.email && user.rol == "admin") {
-    router.push("/admin")
-  }
+  // const router = useRouter()
+  // const user = useSelector(state => state.user.user);
+  // if (user && user.email && user.rol == "admin") {
+  //   router.push("/admin")
+  // }
   return (
     <>
       <SectionWrapper>
