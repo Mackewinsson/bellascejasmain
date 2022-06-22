@@ -3,7 +3,7 @@ export const CREATE_USER = 'CREATE_USER';
 export const SIGNOUT = 'SIGNOUT';
 
 import { onSnapshot, doc } from "firebase/firestore";
-import { db } from '../../services/firebase/firebaseClient';
+import db from '../../services/firebase/firebaseClient';
 
 export const getUser = userId => async dispatch => {
   try {

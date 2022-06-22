@@ -1,12 +1,11 @@
 import { useContext, createContext } from "react";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import app from "../../services/firebase/firebaseClient";
+import {auth} from "../../services/firebase/firebaseClient";
 import Index from "../../pages/index";
 import Admin from "../../pages/admin";
 import {useSelector} from 'react-redux';
 
-const auth = getAuth(app);
 export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {

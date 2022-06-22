@@ -15,6 +15,7 @@ const FirebaseCredentials = {
 // if a Firebase instance doesn't exist, create one
 
 const app = initializeApp(FirebaseCredentials);
-export const db = getFirestore(app)
+const db = getFirestore(app)
+export default db
 
 export const auth = getAuth();
