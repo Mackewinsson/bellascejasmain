@@ -28,10 +28,8 @@ const login = () => {
     if (user && user.email) {
       if (user.rol == "client") {
         router.push("/")
-        // dispatch(authActions.loadingOff());
       } else {
         router.push("/admin")
-        // dispatch(authActions.loadingOff());
       }
     }
   }, [user]);
