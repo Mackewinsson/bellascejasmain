@@ -330,7 +330,7 @@ const modulesAdmin = () => {
                                         </Form.Select>
                                     </Col>
                                 </Row>
-                                <DataTable headers={isHeader} data={isData} onClickE={onEdit} onClickD={onDelete} />
+                                <DataTable headers={isHeader} data={isData} onClickV={null} onClickE={onEdit} onClickD={onDelete} />
                             </>
                         )}
                     </Col> 

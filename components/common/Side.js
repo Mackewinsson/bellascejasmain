@@ -45,6 +45,15 @@ const Side = () => {
                     <Nav.Link href="/classesAdmin" style={{color: isSelected == "/classesAdmin" ? '#5c5f64' : '#02748c'}}>Classes</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
+                    <Nav.Link href="/quizesAdmin" style={{color: isSelected == "/quizesAdmin" ? '#5c5f64' : '#02748c'}}>Quizes</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/paymentAdmin" style={{color: isSelected == "/paymentAdmin" ? '#5c5f64' : '#02748c'}}>Payments</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/questionsAdmin" style={{color: isSelected == "/questionsAdmin" ? '#5c5f64' : '#02748c'}}>Questions</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
                     <WrapperLogout onClick={onPress}> Cerrar sesión </WrapperLogout>
                 </Nav.Item>
             </Nav>

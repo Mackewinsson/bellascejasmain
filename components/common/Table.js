@@ -13,7 +13,7 @@ const BtnEdit = styled.button`
   }
 `;
 
-const DataTable = ({headers, data, onClickE, onClickD}) => {
+const DataTable = ({headers, data, onClickV, onClickE, onClickD}) => {
     let data2 = []
     if (headers && headers.length > 0 && data && data.length > 0) {
         let arr1 = []
@@ -34,8 +34,8 @@ const DataTable = ({headers, data, onClickE, onClickD}) => {
                 <thead>
                     <tr>
                         {headers.map((item) => <th key={item.key}>{item.text}</th>)}
-                        {(onClickE || onClickD) &&
-                            <th colSpan={2} style={{textAlign:'center'}}>Actions</th>
+                        {(onClickE || onClickD || onClickV) &&
+                            <th colSpan={onClickV ? 1 : 2} style={{textAlign:'center'}}>Actions</th>
                         }
                     </tr>
                 </thead>
@@ -47,6 +47,15 @@ const DataTable = ({headers, data, onClickE, onClickD}) => {
                                     {Object.keys(item).map((item2) =>
                                         <td key={item2}>{item[item2]}</td>
                                     )}
+                                    {onClickV && 
+                                        <td>
+                                            <div style={{display: 'flex', justifyContent: 'center'}}>
+                                                <BtnEdit onClick={() => onClickV(item, i)}>
+                                                    V
+                                                </BtnEdit>
+                                            </div>
+                                        </td>
+                                    }
                                     {onClickE && 
                                         <td>
                                             <div style={{display: 'flex', justifyContent: 'center'}}>

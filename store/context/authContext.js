@@ -16,7 +16,7 @@ export const AuthProvider = (props) => {
 
 export const ProtectRoute = ({ children }) => {
   const user = useSelector(state => state.user.user);
-  if ((!user || user.rol !== "admin") && (window.location.pathname == '/admin' || window.location.pathname == '/cursosAdmin' || window.location.pathname == '/modulesAdmin')){
+  if ((!user || user.rol !== "admin") && (window.location.pathname == '/admin' || window.location.pathname == '/cursosAdmin' || window.location.pathname == '/modulesAdmin' || window.location.pathname == '/classsesAdmin')){
     return <Index />;
   }
   if (user && user.rol == "admin" && (window.location.pathname == '/' || window.location.pathname == '/login')){

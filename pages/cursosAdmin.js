@@ -294,6 +294,7 @@ const cursosAdmin = () => {
                                         <DataTable 
                                             headers={isHeaderI}
                                             data={instructions}
+                                            onClickV={null}
                                             onClickE={null} 
                                             onClickD={onDeleteI} 
                                         />
@@ -369,7 +370,7 @@ const cursosAdmin = () => {
                                     }}
                                 />
                                 <BtnNew onClick={handleShow}>New Course</BtnNew>
-                                <DataTable headers={isHeader} data={isData} onClickE={onEdit} onClickD={onDelete} />
+                                <DataTable headers={isHeader} data={isData} onClickV={null} onClickE={onEdit} onClickD={onDelete} />
                             </>
                         )}
                     </Col> 

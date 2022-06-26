@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Container, Row, Col, Modal, Button, Form, Spinner } from "react-bootstrap";
+import {Container, Row, Col, Modal, Button, Form, Spinner, ToggleButton, ButtonGroup } from "react-bootstrap";
 import Sidebar from "../components/common/Side";
 import DataTable from "../components/common/Table";
 import * as modulesActions from '../store/actions/modules';
 import * as courseActions from '../store/actions/courses';
-import * as classesActions from '../store/actions/classes';
+import * as quizesActions from '../store/actions/quizes';
 import {useDispatch, useSelector} from 'react-redux'
 import styled from "styled-components";
 import SweetAlert2 from 'react-sweetalert2';
@@ -20,15 +20,15 @@ const BtnNew = styled.button`
   }
 `;
 
-const classesAdmin = () => {
+const quizesAdmin = () => {
     const dispatch = useDispatch();
-    const isLoadingData = useSelector(state => state.classes.loadingData);
+    const isLoadingData = useSelector(state => state.quizes.loadingData);
     const [swalProps, setSwalProps] = useState({});
     const isLoading = useSelector(state => state.modules.loading);
-    const classes = useSelector(state => state.classes.classes);
+    const quizes = useSelector(state => state.quizes.quizes);
     const modules = useSelector(state => state.modules.modules);
     const courses = useSelector(state => state.courses.courses);
-    const errorCL = useSelector(state => state.classes.errorCL);
+    const errorQ = useSelector(state => state.quizes.errorQ);
     const [edit, setEdit] = useState(false);
     const [isData, setData] = useState([]);
     const [isDataSelectC, setDataSelectC] = useState([]);
@@ -38,39 +38,63 @@ const classesAdmin = () => {
     const [isSelectFilterC, setSelectFilterC] = useState("");
     const [isSelectFilterM, setSelectFilterM] = useState("");
     const [id, setId] = useState("");
-    const [classNotes, setClassNotes] = useState("");
+    const [final, setFinal] = useState("0");
     const [title, setTitle] = useState("");
     const [courseId, setCourseId] = useState("");
     const [moduloId, setModuloId] = useState("");
     const [order, setOrder] = useState(0);
-    const [orderModule, setOrderModule] = useState(0);
-    const [videoUrl, setVideoUrl] = useState("");
+    const [questions, setQuestions] = useState([]);
     const [show, setShow] = useState(false);
+    const [showI, setShowI] = useState(false);
+    const [question, setQuestion] = useState("");
+    const [optionA, setOptionA] = useState("");
+    const [optionB, setOptionB] = useState("");
+    const [optionC, setOptionC] = useState("");
+    const [optionD, setOptionD] = useState("");
+    const [answer, setAnswer] = useState("");
     const isHeader = [{text: 'Id', key: 'id'}, {text: 'Course', key: 'course'},{text: 'Module', key: 'module'}, {text: 'Title', key: 'title'}, {text: 'Order', key: 'order'}];
+    const isHeaderI = [{text: 'Question', key: 'question'}, {text: 'Answer', key: 'answer'}];
+    const [radioValue, setRadioValue] = useState('0');
+    const radios = [
+      { name: 'No', value: '0' },
+      { name: 'Si', value: '1' },
+    ];
+
 
     const handleClose = () => {
         setId("");
         setTitle("");
-        setClassNotes("");
+        setFinal(false);
         setCourseId("");
         setModuloId("");
-        setVideoUrl("");
-        setDataSelectM([])
+        setQuestions([]);
+        setDataSelectM([]);
         setOrder(0);
-        setOrderModule(0);
         setShow(false);
         setEdit(false);
     }
+
     const handleShow = () => setShow(true);
+    const handleShowI = () => setShowI(true);
+
+    const handleCloseI = () => {
+        setQuestion("");
+        setOptionA("");
+        setOptionB("");
+        setOptionC("");
+        setOptionD("");
+        setAnswer("");
+        setShowI(false);
+    }
 
     useEffect(() => {
-        dispatch(classesActions.getClasses())
+        dispatch(quizesActions.getQuizes())
         dispatch(modulesActions.getModules())
         dispatch(courseActions.getCourses())
     }, []);
 
     useEffect(() => {
-        if(errorCL) {
+        if(errorQ) {
             setSwalProps({
                 show: false,
                 title: "",
@@ -82,14 +106,14 @@ const classesAdmin = () => {
                 setSwalProps({
                     show: true,
                     title: '¡Atención',
-                    text: errorCL,
+                    text: errorQ,
                     icon:'error'
                 });
-                dispatch(classesActions.deleteError())
+                dispatch(quizesActions.deleteError())
                 clearInterval(timer)
               },100);
         }
-    }, [errorCL]);
+    }, [errorQ]);
 
     const getTitleCourse = async (courses, id) => {
         return await new Promise(async (resolve) =>{
@@ -113,11 +137,11 @@ const classesAdmin = () => {
 
     useEffect(() => {
         (async () => {
-            if (classes && classes.length > 0 && modules && modules.length > 0 && courses && courses.length > 0) {
+            if (quizes && quizes.length > 0 && modules && modules.length > 0 && courses && courses.length > 0) {
                 let info = []
                 setData([])
-                for (let i = 0; i < classes.length; i++) {
-                    const el = classes[i];
+                for (let i = 0; i < quizes.length; i++) {
+                    const el = quizes[i];
                     let course = await getTitleCourse(courses, el.courseId)
                     let module = await getTitleModule(modules, el.moduloId)
                     info.push({
@@ -165,7 +189,7 @@ const classesAdmin = () => {
                 setDataFilterM(info2)
             }
         })();
-    }, [classes, modules, courses]);
+    }, [quizes, modules, courses]);
 
     useEffect(() => {
         if (isLoadingData == "0") {
@@ -183,14 +207,13 @@ const classesAdmin = () => {
     }, [isLoadingData]);
 
     const onEdit = (e, index) => {
-        classes.forEach((el, i)=>{
+        quizes.forEach((el, i)=>{
             if (i == index) {
-                console.log(el)
                 setId(el.id ? el.id : "");
                 setTitle(el.title ? el.title : "");
-                setClassNotes(el.classNotes ? el.classNotes : "");
+                setFinal(el.final ? el.final : "");
                 setOrder(el.order ? el.order : 0);
-                setOrderModule(el.orderModule ? el.orderModule : 0);
+                setQuestions(el.questions ? el.questions : []);
                 setCourseId(el.courseId ? el.courseId : "");
                 let info = []
                 modules.forEach(el2=>{
@@ -203,7 +226,6 @@ const classesAdmin = () => {
                 })
                 setDataSelectM(info)
                 setModuloId(el.moduloId ? el.moduloId : "");
-                setVideoUrl(el.videoUrl ? el.videoUrl : "");
             }
         });
         setShow(true);
@@ -218,35 +240,34 @@ const classesAdmin = () => {
             showConfirmButton: false,
             allowOutsideClick: false,
         });
-        dispatch(classesActions.deleteClass(e.id))
+        dispatch(quizesActions.deleteQuizes(e.id))
     }
 
     const verifyData = () => {
         if (edit) {
-            if (id && title && classNotes && order !== null && orderModule !== null && courseId && moduloId && videoUrl) {
+            if (id && title && order !== null && courseId && moduloId && questions && questions.length > 0) {
                 return true
             } else return false
         } else {
-            if (title && classNotes && order !== null && orderModule !== null && courseId && moduloId && videoUrl) {
+            if (title && order !== null && courseId && moduloId && questions && questions.length > 0) {
                 return true
             } else return false
         }
     }
 
-    const addClasses = async () => {
+    const addQuizes = async () => {
         if (edit) {
             if (verifyData()) {
                 let info = {
                     id: id,
                     title: title,
-                    classNotes: classNotes,
+                    final: final,
                     moduloId: moduloId,
                     courseId: courseId,
                     order: order,
-                    orderModule: orderModule,
-                    videoUrl: videoUrl
+                    questions: questions
                 }
-                dispatch(classesActions.editClass(info))
+                dispatch(quizesActions.editQuizes(info))
             } else {
                 setSwalProps({
                     show: true,
@@ -259,14 +280,13 @@ const classesAdmin = () => {
             if (verifyData()) {
                 let info = {
                     title: title,
-                    classNotes: classNotes,
+                    final: final,
                     moduloId: moduloId,
                     courseId: courseId,
                     order: order,
-                    orderModule: orderModule,
-                    videoUrl: videoUrl
+                    questions: questions
                 }
-                dispatch(classesActions.setClass(info))
+                dispatch(quizesActions.setQuizes(info))
             } else {
                 setSwalProps({
                     show: true,
@@ -285,8 +305,8 @@ const classesAdmin = () => {
             let info = []
             let info2 = []
             setData([])
-            for (let i = 0; i < classes.length; i++) {
-                const el = classes[i];
+            for (let i = 0; i < quizes.length; i++) {
+                const el = quizes[i];
                 let course = await getTitleCourse(courses, el.courseId)
                 let module = await getTitleModule(modules, el.moduloId)
                 info.push({
@@ -310,8 +330,8 @@ const classesAdmin = () => {
             let info = []
             let info2 = []
             setData([])
-            for (let i = 0; i < classes.length; i++) {
-                const el = classes[i];
+            for (let i = 0; i < quizes.length; i++) {
+                const el = quizes[i];
                 if (el.courseId == e) {
                     let course = await getTitleCourse(courses, el.courseId)
                     let module = await getTitleModule(modules, el.moduloId)
@@ -343,8 +363,8 @@ const classesAdmin = () => {
         if (!e) {
             let info = []
             setData([])
-            for (let i = 0; i < classes.length; i++) {
-                const el = classes[i];
+            for (let i = 0; i < quizes.length; i++) {
+                const el = quizes[i];
                 if (isSelectFilterC == el.courseId) {
                     let course = await getTitleCourse(courses, el.courseId)
                     let module = await getTitleModule(modules, el.moduloId)
@@ -361,8 +381,8 @@ const classesAdmin = () => {
         } else {
             let info = []
             setData([])
-            for (let i = 0; i < classes.length; i++) {
-                const el = classes[i];
+            for (let i = 0; i < quizes.length; i++) {
+                const el = quizes[i];
                 if (e == el.moduloId) {
                     let course = await getTitleCourse(courses, el.courseId)
                     let module = await getTitleModule(modules, el.moduloId)
@@ -393,15 +413,38 @@ const classesAdmin = () => {
         setDataSelectM(info)
     }
 
-    const changeSelectAddM = (e) => {
-        setModuloId(e)
-        if (!e) {
-            setOrderModule(0)
-        } else {
-            modules.forEach(el=>{
-                if (e == el.id) setOrderModule(el.order)
-            })
-        }
+    const changeRadios = (e) => {
+        setRadioValue(e)
+        if (e == "0") {
+            setFinal(false);
+        } else setFinal(true);
+    }
+
+    const onDeleteI = (e, index) => {
+        var data = [];
+        questions.forEach((el, i)=>{
+            if (index != i) data.push(el)
+        })
+        setQuestions(data)
+    }
+
+    const addQuestion = () => {
+        let data = questions
+        data.push({
+            question: question,
+            optionA: optionA,
+            optionB: optionB,
+            optionC: optionC,
+            optionD: optionD,
+            answer: answer
+        })
+        setQuestion("")
+        setOptionA("")
+        setOptionB("")
+        setOptionC("")
+        setOptionD("")
+        setAnswer("")
+        setShowI(false);
     }
 
     return (
@@ -418,7 +461,7 @@ const classesAdmin = () => {
                             <>
                                 <Modal size="lg" show={show} onHide={handleClose}>
                                     <Modal.Header closeButton>
-                                        <Modal.Title>New Class</Modal.Title>
+                                        <Modal.Title>New Quizes</Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
                                         <Form>
@@ -433,7 +476,7 @@ const classesAdmin = () => {
                                             </Form.Group>
                                             <Form.Group className="mb-3" controlId="moduloId">
                                                 <Form.Label>Module</Form.Label>
-                                                <Form.Select onChange={(e) => {changeSelectAddM(e.target.value)}} value={moduloId}>
+                                                <Form.Select onChange={(e) => {setModuloId(e.target.value)}} value={moduloId}>
                                                     <option key="M" value={""}>Select your module</option>
                                                     {isDataSelectM.map((item, i) => 
                                                         <option key={i} value={item.id}>{item.title}</option>
@@ -449,14 +492,24 @@ const classesAdmin = () => {
                                                     value={title}
                                                 />
                                             </Form.Group>
-                                            <Form.Group className="mb-3" controlId="videoUrl">
-                                                <Form.Label>Video url</Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    placeholder="Enter your video url"
-                                                    onChange={(e) => {setVideoUrl(e.target.value)}}
-                                                    value={videoUrl}
-                                                />
+                                            <Form.Group className="mb-3" controlId="final" style={{display: 'flex', flexDirection: 'column'}}>
+                                                <Form.Label>Quiz final</Form.Label>
+                                                <ButtonGroup className="mb-2">
+                                                    {radios.map((radio, idx) => (
+                                                        <ToggleButton
+                                                            key={idx}
+                                                            id={`radio-${idx}`}
+                                                            type="radio"
+                                                            variant="secondary"
+                                                            name="radio"
+                                                            value={radio.value}
+                                                            checked={radioValue === radio.value}
+                                                            onChange={(e) => changeRadios(e.currentTarget.value)}
+                                                        >
+                                                            {radio.name}
+                                                        </ToggleButton>
+                                                    ))}
+                                                </ButtonGroup>
                                             </Form.Group>
                                             <Form.Group className="mb-3" controlId="order">
                                                 <Form.Label>Order</Form.Label>
@@ -467,20 +520,17 @@ const classesAdmin = () => {
                                                     value={order}
                                                 />
                                             </Form.Group>
-                                            <Form.Group
-                                                className="mb-3"
-                                                controlId="classNotes"
-                                                >
-                                                <Form.Label>Class notes</Form.Label>
-                                                <Form.Control 
-                                                    as="textarea" 
-                                                    // rows={3}
-                                                    placeholder="Enter your class notes"
-                                                    onChange={(e) => {setClassNotes(e.target.value)}}
-                                                    value={classNotes}
-                                                />
-                                            </Form.Group>
                                         </Form>
+                                        <Button variant="primary" className="mb-3" onClick={handleShowI}>
+                                            Add quizes
+                                        </Button>
+                                        <DataTable 
+                                            headers={isHeaderI}
+                                            data={questions}
+                                            onClickV={null}
+                                            onClickE={null} 
+                                            onClickD={onDeleteI} 
+                                        />
                                     </Modal.Body>
                                     <Modal.Footer>
                                         {isLoadingData == '1' ? 
@@ -495,11 +545,82 @@ const classesAdmin = () => {
                                                 <Button variant="secondary" onClick={handleClose}>
                                                     Close
                                                 </Button>
-                                                <Button variant="primary" onClick={addClasses}>
+                                                <Button variant="primary" onClick={addQuizes}>
                                                     Save Changes
                                                 </Button>
                                             </>
                                         )}
+                                    </Modal.Footer>
+                                </Modal>
+                                <Modal show={showI} onHide={handleCloseI}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>New question</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <Form>
+                                            <Form.Group className="mb-3" controlId="question">
+                                                <Form.Label>Question</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your question"
+                                                    onChange={(e) => {setQuestion(e.target.value)}}
+                                                    value={question}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3" controlId="optionA">
+                                                <Form.Label>Option A</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your option A"
+                                                    onChange={(e) => {setOptionA(e.target.value)}}
+                                                    value={optionA}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3" controlId="optionB">
+                                                <Form.Label>Option B</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your option B"
+                                                    onChange={(e) => {setOptionB(e.target.value)}}
+                                                    value={optionB}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3" controlId="optionC">
+                                                <Form.Label>Option C</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your option C"
+                                                    onChange={(e) => {setOptionC(e.target.value)}}
+                                                    value={optionC}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3" controlId="optionD">
+                                                <Form.Label>Option D</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your option D"
+                                                    onChange={(e) => {setOptionD(e.target.value)}}
+                                                    value={optionD}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3" controlId="answer">
+                                                <Form.Label>Answer</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter your answer"
+                                                    onChange={(e) => {setAnswer(e.target.value)}}
+                                                    value={answer}
+                                                />
+                                            </Form.Group>
+                                        </Form>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={handleCloseI}>
+                                            Close
+                                        </Button>
+                                        <Button variant="primary" onClick={addQuestion}>
+                                            Save Changes
+                                        </Button>
                                     </Modal.Footer>
                                 </Modal>
                                 <SweetAlert2 {...swalProps} 
@@ -514,7 +635,7 @@ const classesAdmin = () => {
                                 />
                                 <Row>
                                     <Col xs={8}>
-                                        <BtnNew onClick={handleShow}>New Class</BtnNew>
+                                        <BtnNew onClick={handleShow}>New Quizes</BtnNew>
                                     </Col>
                                     <Col xs={4}>
                                         <div style={{display: 'flex'}}>
@@ -541,4 +662,4 @@ const classesAdmin = () => {
         </>
     );
   };
-  export default classesAdmin
+  export default quizesAdmin
