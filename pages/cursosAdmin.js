@@ -126,7 +126,7 @@ const cursosAdmin = () => {
                 setTeacher(el.teacher);
                 setDescription(el.description);
                 setAmount(el.amount);
-                setInstructions(el.instructions);
+                setInstructions(el.instructions ? el.instructions : []);
             }
         });
         setShow(true);

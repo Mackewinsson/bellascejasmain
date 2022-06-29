@@ -17,6 +17,9 @@ export const getQuestions = () => async dispatch => {
           id: el.id,
           date: el.data().date,
           dni: el.data().dni,
+          courseId: el.data().courseId,
+          moduloId: el.data().moduloId,
+          classId: el.data().classId,
           email: el.data().email,
           question: el.data().question,
           user: el.data().user
