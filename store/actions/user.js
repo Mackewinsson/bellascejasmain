@@ -85,7 +85,7 @@ export const setUser = (info) => async dispatch => {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
           // axios.post('https://microbladingacademy.herokuapp.com/consultas/sendCredentiales', JSON.stringify(info), {headers: headrs}).then(async (response) => {
-          axios.post('http://192.168.1.102:3001/consultas/sendCredentiales', JSON.stringify(info), {headers: headrs}).then(async (response) => {
+          axios.post('http://192.168.1.103:3001/consultas/sendCredentiales', JSON.stringify(info), {headers: headrs}).then(async (response) => {
             dispatch({type: LOADING_DATAU, payload: '0'});
             if (!response || !response.data || !response.data.success) {
               dispatch({type: SET_ERRORU, payload: 'Error inexperado, contacte con el administrador.'});
