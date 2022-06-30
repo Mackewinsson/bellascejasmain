@@ -1,9 +1,10 @@
-import {SIGNIN_LOADING, SIGNIN_FAILED, SIGNIN, SIGNOUT, LOADING_OFF} from '../actions/auth';
+import {SIGNIN_LOADING, SIGNIN_FAILED, SIGNIN, SIGNOUT, LOADING_OFF, SET_ERRORAUTH} from '../actions/auth';
 
 const initialState = {
   user: null,
   isSignedIn: false,
   isLoading: false,
+  errorAuth: ""
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -34,7 +35,13 @@ export const authReducer = (state = initialState, action) => {
     case SIGNIN_FAILED:
       return {
         ...state,
-        error: action.payload.error,
+        isLoading: false,
+        errorAuth: action.payload.error,
+      };
+    case SET_ERRORAUTH:
+      return {
+        ...state,
+        errorAuth: action.payload,
       };
     default:
       return state;

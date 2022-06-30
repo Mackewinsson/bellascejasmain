@@ -17,6 +17,7 @@ export const getCourses = () => async dispatch => {
           id: el.id,
           title: el.data().title,
           description: el.data().description,
+          validity: el.data().validity,
           amount: el.data().amount,
           instructions: el.data().instructions,
           thumbnail: el.data().thumbnail,
@@ -39,6 +40,7 @@ export const setCourse = (info) => async dispatch => {
       title: info.title,
       thumbnail: info.thumbnail,
       teacher: info.teacher,
+      validity: parseFloat(info.validity),
       description: info.description,
       amount: parseFloat(info.amount),
       instructions: info.instructions
@@ -61,6 +63,7 @@ export const editCourse = (info) => async dispatch => {
       title: info.title,
       thumbnail: info.thumbnail,
       teacher: info.teacher,
+      validity: parseFloat(info.validity),
       description: info.description,
       amount: parseFloat(info.amount),
       instructions: info.instructions

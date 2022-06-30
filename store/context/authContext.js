@@ -29,7 +29,7 @@ export const ProtectRoute = ({ children }) => {
     router.push("/")
     return null;
   }
-  if (user && user.rol == "admin" && (window.location.pathname == '/' || window.location.pathname == '/login')){
+  if (user && user.rol == "admin" && (window.location.pathname == '/' || window.location.pathname == '/login' || window.location.pathname == '/courses')){
     router.push("/admin")
     return null;
   }

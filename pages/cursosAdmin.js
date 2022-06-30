@@ -32,13 +32,14 @@ const cursosAdmin = () => {
     const [thumbnail, setThumbnail] = useState("");
     const [teacher, setTeacher] = useState("");
     const [description, setDescription] = useState("");
+    const [validity, setValidity] = useState(1);
     const [amount, setAmount] = useState(0);
     const [instructions, setInstructions] = useState([]);
     const [descriptionI, setDescriptionI] = useState("");
     const [image, setImageI] = useState("");
     const [show, setShow] = useState(false);
     const [showI, setShowI] = useState(false);
-    const isHeader = [{text: 'Id', key: 'id'}, {text: 'Title', key: 'title'}, {text: 'Teacher', key: 'teacher'}, {text: 'Amount', key: 'amount'}];
+    const isHeader = [{text: 'Id', key: 'id'}, {text: 'Title', key: 'title'}, {text: 'Teacher', key: 'teacher'}, {text: 'Amount', key: 'amount'}, {text: 'Validity', key: 'validity'}];
     const isHeaderI = [{text: 'Description', key: 'description'}, {text: 'Url Img', key: 'image'}];
 
     const handleClose = () => {
@@ -47,6 +48,7 @@ const cursosAdmin = () => {
         setThumbnail("");
         setTeacher("");
         setDescription("");
+        setValidity(1);
         setAmount(0);
         setInstructions([]);
         setShow(false);
@@ -96,7 +98,8 @@ const cursosAdmin = () => {
                     id: el.id,
                     title: el.title,
                     teacher: el.teacher,
-                    amount: el.amount
+                    amount: el.amount,
+                    validity: el.validity,
                 })
             })
             setData(info)
@@ -126,6 +129,7 @@ const cursosAdmin = () => {
                 setTeacher(el.teacher);
                 setDescription(el.description);
                 setAmount(el.amount);
+                setValidity(el.validity ? el.validity : 1);
                 setInstructions(el.instructions ? el.instructions : []);
             }
         });
@@ -154,11 +158,11 @@ const cursosAdmin = () => {
 
     const verifyData = () => {
         if (edit) {
-            if (id && title && thumbnail && teacher && description && amount && instructions.length > 0 ) {
+            if (id && title && thumbnail && teacher && description && amount && instructions.length > 0 && validity > 0) {
                 return true
             } else return false
         } else {
-            if (title && thumbnail && teacher && description && amount && instructions.length > 0 ) {
+            if (title && thumbnail && teacher && description && amount && instructions.length > 0 && validity > 0) {
                 return true
             } else return false
         }
@@ -172,18 +176,28 @@ const cursosAdmin = () => {
                     title: title,
                     thumbnail: thumbnail,
                     teacher: teacher,
+                    validity: validity,
                     description: description,
                     amount: amount,
                     instructions: instructions
                 }
                 dispatch(courseActions.editCourse(info))
             } else {
-                setSwalProps({
-                    show: true,
-                    title: '¡Atención',
-                    text: 'Para poder continuar con la operación debe ingresar todos los datos solicitados.',
-                    icon:'error'
-                }); 
+                if (validity > 0) {
+                    setSwalProps({
+                        show: true,
+                        title: '¡Atención',
+                        text: 'Para poder continuar con la operación debe ingresar todos los datos solicitados.',
+                        icon:'error'
+                    });
+                } else {
+                    setSwalProps({
+                        show: true,
+                        title: '¡Atención',
+                        text: 'Estimado usuario, los meses de expiración del curso deben ser mayor a 0.',
+                        icon:'error'
+                    });
+                }
             }
         } else {
             if (verifyData()) {
@@ -191,18 +205,28 @@ const cursosAdmin = () => {
                     title: title,
                     thumbnail: thumbnail,
                     teacher: teacher,
+                    validity: validity,
                     description: description,
                     amount: amount,
                     instructions: instructions
                 }
                 dispatch(courseActions.setCourse(info))
             } else {
-                setSwalProps({
-                    show: true,
-                    title: '¡Atención',
-                    text: 'Para poder continuar con la operación debe ingresar todos los datos solicitados.',
-                    icon:'error'
-                }); 
+                if (validity > 0) {
+                    setSwalProps({
+                        show: true,
+                        title: '¡Atención',
+                        text: 'Para poder continuar con la operación debe ingresar todos los datos solicitados.',
+                        icon:'error'
+                    });
+                } else {
+                    setSwalProps({
+                        show: true,
+                        title: '¡Atención',
+                        text: 'Estimado usuario, los meses de expiración del curso deben ser mayor a 0.',
+                        icon:'error'
+                    });
+                }
             }
         }
     }
@@ -263,6 +287,15 @@ const cursosAdmin = () => {
                                                     placeholder="Enter your teacher"
                                                     onChange={(e) => {setTeacher(e.target.value)}}
                                                     value={teacher}
+                                                />
+                                            </Form.Group>
+                                            <Form.Group className="mb-3" controlId="validity">
+                                                <Form.Label>Validity (months)</Form.Label>
+                                                <Form.Control
+                                                    type="number"
+                                                    placeholder="Enter your validity (months)"
+                                                    onChange={(e) => {setValidity(e.target.value)}}
+                                                    value={validity}
                                                 />
                                             </Form.Group>
                                             <Form.Group className="mb-3" controlId="amount">

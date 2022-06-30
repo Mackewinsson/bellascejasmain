@@ -7,6 +7,8 @@ import * as courseActions from '../store/actions/courses';
 import {useDispatch, useSelector} from 'react-redux'
 import styled from "styled-components";
 import SweetAlert2 from 'react-sweetalert2';
+import moment from 'moment'
+moment.locale('es')
 
 const BtnNew = styled.button`
   height: 40px;
@@ -38,12 +40,13 @@ const cursosAdmin = () => {
     const [rol, setRol] = useState("");
     const [courses, setCourses] = useState([]);
     const [idI, setIdI] = useState("");
+    const [estatus, setEstatus] = useState("");
     const [editEmail, setEditEmail] = useState(false);
     const [editPassword, setEditPassword] = useState(false);
     const [show, setShow] = useState(false);
     const [showI, setShowI] = useState(false);
     const [isDataSelect, setDataSelect] = useState([]);
-    const isHeader = [{text: 'Id', key: 'id'}, {text: 'Name', key: 'name'}, {text: 'Dni', key: 'dni'}, {text: 'Email', key: 'email'}, , {text: 'Rol', key: 'rol'}];
+    const isHeader = [{text: 'Id', key: 'id'}, {text: 'Name', key: 'name'}, {text: 'Dni', key: 'dni'}, {text: 'Email', key: 'email'}, , {text: 'Rol', key: 'rol'}, {text: "Estatus", key: 'estatus'}];
     const isHeaderI = [{text: 'Id', key: 'idI'}, {text: 'Course', key: 'courseI'}];
 
     const [radioValue, setRadioValue] = useState('0');
@@ -58,6 +61,7 @@ const cursosAdmin = () => {
         setEmail("");
         setPhone("");
         setDni("");
+        setEstatus("");
         setRol("");
         setPassword("");
         setCourses([]);
@@ -109,7 +113,8 @@ const cursosAdmin = () => {
                     name: el.name,
                     dni: el.dni,
                     email: el.email,
-                    rol: el.rol
+                    rol: el.rol,
+                    estatus: el.estatus
                 })
             })
             setData(info)
@@ -129,7 +134,7 @@ const cursosAdmin = () => {
 
     useEffect(() => {
         if (isLoadingData == "0") {
-            handleClose()
+            if (!errorU) handleClose()
             setSwalProps({
                 show: false,
                 title: "",
@@ -148,6 +153,7 @@ const cursosAdmin = () => {
                 setEmail(el.email);
                 setPassword("");
                 setPhone(el.phone);
+                setEstatus(el.estatus);
                 setDni(el.dni);
                 setRol(el.rol);
                 setCourses(el.courses ? el.courses : []);
@@ -155,6 +161,26 @@ const cursosAdmin = () => {
         });
         setShow(true);
         setEdit(true);
+    }
+
+    const onDelete = (e, index) => {
+        if (e.estatus !== "Eliminado") {
+            setSwalProps({
+                show: true,
+                title: "Cargando...",
+                html: "Esperando respuesta del servidor",
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
+            dispatch(userActions.deleteUser(e.id))
+        } else {
+            setSwalProps({
+                show: true,
+                title: '¡Atención',
+                text: 'El usuario seleccionado se encuentra eliminado.',
+                icon:'error'
+            });
+        }
     }
 
     const onDeleteI = (e, index) => {
@@ -185,12 +211,17 @@ const cursosAdmin = () => {
         if (edit) {
             if (verifyData()) {
                 let arry = [];
-                courses.forEach(el=>{
-                    arry.push({
-                        generalProgress: 0,
-                        id: el.idI,
-                        seenClasses: [],
-                        seenQuizz: []
+                coursesL.forEach(el2=>{
+                    courses.forEach(el=>{
+                        if (el2.id == el.idI) {
+                            arry.push({
+                                generalProgress: 0,
+                                id: el.idI,
+                                expiration: moment().add(parseFloat(el2.validity), 'M').format('DD/MM/YYYY H:mm A').toString(),
+                                seenClasses: [],
+                                seenQuizz: []
+                            })
+                        }
                     })
                 })
                 let info = {
@@ -199,6 +230,7 @@ const cursosAdmin = () => {
                     email: email,
                     phone: phone,
                     password: password,
+                    estatus: estatus,
                     dni: dni,
                     rol: rol,
                     courses: arry,
@@ -216,12 +248,17 @@ const cursosAdmin = () => {
         } else {
             if (verifyData()) {
                 let arry = [];
-                courses.forEach(el=>{
-                    arry.push({
-                        generalProgress: 0,
-                        id: el.idI,
-                        seenClasses: [],
-                        seenQuizz: []
+                coursesL.forEach(el2=>{
+                    courses.forEach(el=>{
+                        if (el2.id == el.idI) {
+                            arry.push({
+                                generalProgress: 0,
+                                id: el.idI,
+                                expiration: moment().add(parseFloat(el2.validity), 'M').format('DD/MM/YYYY H:mm A').toString(),
+                                seenClasses: [],
+                                seenQuizz: []
+                            })
+                        }
                     })
                 })
                 let info = {
@@ -229,6 +266,7 @@ const cursosAdmin = () => {
                     email: email,
                     phone: phone,
                     password: password,
+                    estatus: estatus,
                     dni: dni,
                     rol: rol,
                     courses: arry
@@ -312,7 +350,7 @@ const cursosAdmin = () => {
                                                 <Form.Group className="mb-3" controlId="password">
                                                     <Form.Label>Password</Form.Label>
                                                     <Form.Control
-                                                        type="text"
+                                                        type="password"
                                                         placeholder="Enter your password"
                                                         onChange={(e) => {setPassword(e.target.value)}}
                                                         value={password}
@@ -405,6 +443,15 @@ const cursosAdmin = () => {
                                                 </Form.Group>
                                             </>
                                         } */}
+                                        {edit &&
+                                            <Form.Group className="mb-3" controlId="estatus">
+                                                <Form.Label>Estatus</Form.Label>
+                                                <Form.Select onChange={(e) => {setEstatus(e.target.value)}} value={estatus}>
+                                                    <option key="A" value="Eliminado">Eliminado</option>
+                                                    <option key="C" value="Activo">Activo</option>
+                                                </Form.Select>
+                                            </Form.Group>
+                                        }
                                     </Modal.Body>
                                     <Modal.Footer>
                                         {isLoadingData == '1' ? 
@@ -463,7 +510,7 @@ const cursosAdmin = () => {
                                     }}
                                 />
                                 <BtnNew onClick={handleShow}>New User</BtnNew>
-                                <DataTable headers={isHeader} data={isData} onClickV={null} onClickE={onEdit} onClickD={null} />
+                                <DataTable headers={isHeader} data={isData} onClickV={null} onClickE={onEdit} onClickD={onDelete} />
                             </>
                         )}
                     </Col> 
