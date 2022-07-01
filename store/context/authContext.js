@@ -5,7 +5,6 @@ import {auth} from "../../services/firebase/firebaseClient";
 import Index from "../../pages/index";
 import Admin from "../../pages/admin";
 import {useSelector} from 'react-redux';
-
 export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
@@ -21,4 +20,3 @@ export const ProtectRoute = ({ children }) => {
   }
   return children;
 };
-
