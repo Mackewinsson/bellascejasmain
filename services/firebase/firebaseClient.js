@@ -1,5 +1,6 @@
-import { getApps, initializeApp } from "Firebase/app";
-import "Firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore }  from 'firebase/firestore'
 
 const FirebaseCredentials = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
@@ -13,10 +14,8 @@ const FirebaseCredentials = {
 };
 // if a Firebase instance doesn't exist, create one
 
-let app;
+const app = initializeApp(FirebaseCredentials);
+const db = getFirestore(app)
+export default db
 
-if (!getApps.length) {
-  app = initializeApp(FirebaseCredentials);
-}
-
-export default app;
+export const auth = getAuth();

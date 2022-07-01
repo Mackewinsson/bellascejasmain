@@ -1,6 +1,12 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/common/Layout";
-import { UserProvider } from "@auth0/nextjs-auth0";
+// import { UserProvider } from "@auth0/nextjs-auth0";
+import { ProtectRoute } from "../store/context/authContext";
+import store, {persistor} from "../store/store";
+import { Provider } from "react-redux";
+import { createWrapper } from 'next-redux-wrapper'
+import { PersistGate } from 'redux-persist/integration/react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GlobalStyle = createGlobalStyle`
   html,body {
@@ -27,6 +33,11 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: underline;
     }
   }
+  .sidebar {
+    min-height: 93.5vh !important;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
 
 `;
 
@@ -36,17 +47,25 @@ const theme = {
   },
 };
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
-    <>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <UserProvider>
+        <ProtectRoute>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </UserProvider>
+        </ProtectRoute>
+        {/* <UserProvider>
+        </UserProvider> */}
       </ThemeProvider>
-    </>
+      </PersistGate>
+    </Provider>
   );
 }
+
+const makestore = () =>store;
+const wraper = createWrapper(makestore)
+export default wraper.withRedux(App)
