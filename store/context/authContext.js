@@ -35,4 +35,3 @@ export const ProtectRoute = ({ children }) => {
   }
   return children;
 };
-
