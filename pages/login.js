@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import SweetAlert2 from 'react-sweetalert2';
 import * as authActions from '../store/actions/auth';
 import {
   CenterContent,
@@ -12,6 +13,8 @@ import {useDispatch, useSelector} from 'react-redux'
 const login = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.auth.isLoading);
+  const errorAuth = useSelector(state => state.auth.errorAuth);
+  const [swalProps, setSwalProps] = useState({});
   const router = useRouter()
   const user = useSelector(state => state.user.user);
   const [email, setEmail] = useState("peds.gado@gmail.com");
@@ -27,14 +30,34 @@ const login = () => {
   useEffect(() => {
     if (user && user.email) {
       if (user.rol == "client") {
-        router.push("/")
-        // dispatch(authActions.loadingOff());
+        router.push("/courses")
       } else {
         router.push("/admin")
-        // dispatch(authActions.loadingOff());
       }
     }
   }, [user]);
+
+  useEffect(() => {
+    if(errorAuth) {
+      setSwalProps({
+          show: false,
+          title: "",
+          html: "",
+          showConfirmButton: true,
+          allowOutsideClick: true,
+      }); 
+      let timer = setInterval(function(){
+          setSwalProps({
+              show: true,
+              title: '¡Atención',
+              text: errorAuth,
+              icon:'error'
+          });
+          dispatch(authActions.deleteError())
+          clearInterval(timer)
+        },100);
+  }
+  }, [errorAuth]);
 
   if (isLoading) {
     return <div style={{width: '100%', height: '100%', display: 'flex' ,justifyContent: 'center', alignItems: 'center', fontSize: 40}}>Loading...</div>
@@ -42,6 +65,16 @@ const login = () => {
 
   return (
     <CenterContent>
+      <SweetAlert2 {...swalProps} 
+          onConfirm={result => {
+              setSwalProps({
+                  show: false,
+                  title: '',
+                  text: '',
+                  icon:''
+              }); 
+          }}
+      />
       <MainTitle>Iniciar Sesión</MainTitle>
       <Form onSubmit={onSubmit}>
         <label htmlFor="email">Email:</label>

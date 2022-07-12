@@ -3,6 +3,7 @@ export const SIGNOUT = 'SIGNOUT';
 export const SIGNIN_LOADING = 'SIGNIN_LOADING';
 export const SIGNIN_FAILED = 'SIGNIN_FAILED';
 export const LOADING_OFF = 'LOADING_OFF';
+export const SET_ERRORAUTH = 'SET_ERRORAUTH';
 
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 const auth = getAuth();
@@ -24,7 +25,7 @@ export const signin = (userId, password) => async dispatch => {
       dispatch({
         type: SIGNIN_FAILED,
         payload: {
-          resp,
+          error: resp
         },
       });
     }
@@ -36,6 +37,10 @@ export const signin = (userId, password) => async dispatch => {
       },
     });
   }
+};
+
+export const deleteError = () => async dispatch => {
+  dispatch({type: SET_ERRORAUTH, payload: ''});
 };
 
 export const loadingOff = () => async dispatch => {
