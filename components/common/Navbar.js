@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Link from "next/link";
-import { useUser } from "@auth0/nextjs-auth0";
+import {useDispatch, useSelector} from 'react-redux'
+import * as authActions from '../../store/actions/auth';
 import NavLink from "./NavLink";
+import { useRouter } from 'next/router'
 
-const Nav = styled.nav`
-  grid-area: header;
-  width: 100%;
-  height: 50px;
-  background-color: ${(props) => (props.user ? "#00A7C2" : "#2a2a2a")};
-`;
 
 const Ul = styled.ul`
   display: flex;
@@ -45,6 +40,14 @@ const Ul = styled.ul`
   @media (max-width: 768px) {
     width: 100%;
   }
+`;
+
+
+const Nav = styled.nav`
+  grid-area: header;
+  width: 100%;
+  height: 50px;
+  background-color: ${(props) => (props.user ? "#00A7C2" : "#2a2a2a")};
 `;
 
 const UlWrapper = styled.div`
@@ -98,36 +101,78 @@ const LogoutWrapper = styled.div`
   }
 `;
 
+const WrapperLogout = styled.a`
+  display: flex;
+  color: ${(props) => (props.user ? "#fff" : "#ae9754")};
+  cursor: pointer;
+  :hover {
+    color: #fff;
+  }
+`;
+
 //construir logged in nav
 
 const Navbar = () => {
-  const { user, isLoading } = useUser();
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user.user);
+  const router = useRouter()
+  const [isAdmin, setAdmin] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  const onPress = async () => {
+    await dispatch(authActions.signout());
+    router.push("/")
+  };
+
+  useEffect(() => {
+    if (user && user.email) {
+      if (user.rol == "admin") setAdmin(true)
+      setLogin(true)
+    } else {
+      setLogin(false)
+    }
+  }, [user]);
+
   return (
-    <Nav user={user}>
-      <UlWrapper>
-        <Ul>
-          <li>
-            <NavLink href="/" name="Inicio" user={user} />
-          </li>
-          <li>
-            {user ? (
-              <NavLink href="/academia" name="Academia" user={user} />
-            ) : (
-              <NavLink
-                href="/yuleximarquez"
-                name="Yulexi Marquez"
-                user={user}
-              />
-            )}
-          </li>
-          <li>
-            <StyledATag href="#cursos" user={user}>
-              <span>Cursos</span>
-            </StyledATag>
-          </li>
-        </Ul>
-      </UlWrapper>
-    </Nav>
+    <>
+      {!isAdmin && (
+        <Nav user={login}>
+          <UlWrapper>
+            <Ul>
+              <li>
+                <NavLink href="/" name="Inicio" user={login} />
+              </li>
+              <li>
+                {login ? (
+                  <NavLink href="/academia" name="Academia" user={login} />
+                ) : (
+                  <NavLink
+                    href="/yuleximarquez"
+                    name="Yulexi Marquez"
+                    user={login}
+                  />
+                )}
+              </li>
+              <li>
+                <StyledATag href="#cursos" user={login}>
+                  <span>Cursos</span>
+                </StyledATag>
+              </li>
+              { login ? (
+                  <li>
+                    <WrapperLogout onClick={onPress} user={login}> Cerrar sesión </WrapperLogout>
+                  </li>
+                ) : (
+                  <li>
+                    <WrapperLogout onClick={()=> {router.push("/login")}} user={login}> Login</WrapperLogout>
+                  </li>
+                )
+              }
+            </Ul>
+          </UlWrapper>
+        </Nav>
+      )}
+    </>
   );
 };
 
