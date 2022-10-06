@@ -11,6 +11,7 @@ export const getServices = () => async dispatch => {
         data.push({
           title: el.data().title,
           price: el.data().price,
+          section: el.data().section
         });
       })
       dispatch({
