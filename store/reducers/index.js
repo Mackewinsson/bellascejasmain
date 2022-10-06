@@ -7,6 +7,8 @@ import {classesReducer} from "./classesReducer"
 import {quizesReducer} from "./quizesReducer"
 import {paymentsReducer} from "./paymentReducer"
 import {questionsReducer} from "./questionsReducer"
+import {servicesReducer} from "./servicesReducer"
+
 export default combineReducers({
     auth: authReducer,
     user: userReducer,
@@ -15,5 +17,6 @@ export default combineReducers({
     classes: classesReducer,
     quizes: quizesReducer,
     payment: paymentsReducer,
-    questions: questionsReducer
+    questions: questionsReducer,
+    services: servicesReducer
 });

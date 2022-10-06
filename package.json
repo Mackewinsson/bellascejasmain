@@ -33,7 +33,8 @@
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.12.0"
+    "babel-plugin-styled-components": "^1.12.0",
+    "redux-logger": "^3.0.6"
   },
   "license": "MIT"
 }
