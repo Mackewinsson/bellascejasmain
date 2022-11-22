@@ -17,7 +17,11 @@ const servicios = () => {
         {Object.keys(services).map((el) => {
           return (
             <div key={el}>
-              <h4>{el.charAt(0).toUpperCase() + el.slice(1)}</h4>
+              <PromoWrapper>
+                <h4>{el.charAt(0).toUpperCase() + el.slice(1)}</h4>
+                {el === "PROMO" && <Promo>Nueva</Promo>}
+                {el === "PROMO" && <Limited>**Por tiempo limitado **</Limited>}
+              </PromoWrapper>
               <ul>
                 {(services[el] || []).map((section) => {
                   return (
@@ -65,4 +69,24 @@ const LinkWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+`;
+
+const Promo = styled.span`
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  font-size: 8px;
+  padding: 5px;
+  height: 20px;
+  display: flex;
+  margin-left: 5px;
+`;
+
+const PromoWrapper = styled.div`
+  display: flex;
+`;
+
+const Limited = styled.span`
+  font-size: 8px;
+  margin-left: 5px;
 `;
