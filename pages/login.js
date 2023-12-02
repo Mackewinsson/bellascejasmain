@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import SweetAlert2 from "react-sweetalert2";
 import * as authActions from "../store/actions/auth";
-import {
-  CenterContent,
-  MainTitle,
-} from "../components/common/StyledComponents/Styles";
 import { useRouter } from "next/router";
-
 import { useDispatch, useSelector } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Image from "next/image";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 const login = () => {
   const dispatch = useDispatch();
@@ -77,7 +77,7 @@ const login = () => {
   }
 
   return (
-    <CenterContent>
+    <>
       <SweetAlert2
         {...swalProps}
         onConfirm={(result) => {
@@ -89,57 +89,53 @@ const login = () => {
           });
         }}
       />
-      <MainTitle>Iniciar Sesión</MainTitle>
-      <Form onSubmit={onSubmit}>
-        <label htmlFor="email">Email:</label>
-        <Input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="email">Password:</label>
-        <Input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <SubmitButton type="submit" />
-      </Form>
-    </CenterContent>
+
+      <div className="login template d-flex justify-content-center align-items-center vh-100 bg-secondary-subtle">
+        <div className="p-4 rounded bg-white">
+          <Container>
+            <Row>
+              <Image
+                width={250}
+                height={250}
+                src="/img/logo10.png"
+                alt="Logo"
+              />
+            </Row>
+          </Container>
+          <Form onSubmit={onSubmit}>
+            <h1 className="text-center h3">Iniciar Sesión</h1>
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+              <Form.Label htmlFor="email">Email:</Form.Label>
+              <Form.Control
+                placeholder="Enter email"
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formGroupPassword">
+              <Form.Label htmlFor="email">Password:</Form.Label>
+              <Form.Control
+                placeholder="Password"
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <div className="d-grid">
+              <Button type="submit" variant="dark">
+                Submit
+              </Button>
+            </div>
+          </Form>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default login;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightgray;
-  width: 60%;
-  align-items: center;
-  justify-content: center;
-  height: 50%;
-  border-radius: 10px;
-  background-color: lightgray;
-`;
-
-const Input = styled.input`
-  height: 30px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  padding-left: 10px;
-  width: 80%;
-`;
-
-const SubmitButton = styled.input`
-  height: 40px;
-  background-color: gray;
-  border-radius: 15px;
-  font-weight: bold;
-  width: 80%;
-  margin-top: 20px;
-`;
