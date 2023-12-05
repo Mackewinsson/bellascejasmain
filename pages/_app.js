@@ -2,11 +2,11 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/common/Layout";
 // import { UserProvider } from "@auth0/nextjs-auth0";
 import { ProtectRoute } from "../store/context/authContext";
-import store, {persistor} from "../store/store";
+import store, { persistor } from "../store/store";
 import { Provider } from "react-redux";
-import { createWrapper } from 'next-redux-wrapper'
-import { PersistGate } from 'redux-persist/integration/react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { createWrapper } from "next-redux-wrapper";
+import { PersistGate } from "redux-persist/integration/react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const GlobalStyle = createGlobalStyle`
   html,body {
@@ -51,21 +51,21 @@ function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <ProtectRoute>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ProtectRoute>
-        {/* <UserProvider>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <ProtectRoute>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ProtectRoute>
+          {/* <UserProvider>
         </UserProvider> */}
-      </ThemeProvider>
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   );
 }
 
-const makestore = () =>store;
-const wraper = createWrapper(makestore)
-export default wraper.withRedux(App)
+const makestore = () => store;
+const wraper = createWrapper(makestore);
+export default wraper.withRedux(App);

@@ -1,12 +1,7 @@
 import React from "react";
 
 const courses = () => {
-
-
-  return (
-    <>
-    </>
-  );
+  return <div>jkdk</div>;
 };
 
 export default courses;

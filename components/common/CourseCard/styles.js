@@ -1,10 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import { ALink } from "./StyledComponents/Styles";
-import Link from "next/link";
-import Image from "next/image";
 
-const StyledCard = styled.div`
+export const StyledCard = styled.div`
   /* NEOMORFISM */
   border-radius: 50px;
   /* background: #e0e0e0; */
@@ -19,7 +15,7 @@ const StyledCard = styled.div`
   margin-left: 20px;
 `;
 
-const CardTitleContainer = styled.div`
+export const CardTitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +36,7 @@ const CardTitleContainer = styled.div`
   }
 `;
 
-const CardTitle = styled.h2`
+export const CardTitle = styled.h2`
   color: #fff;
   z-index: 1000;
   font-size: 1.6em;
@@ -51,7 +47,7 @@ const CardTitle = styled.h2`
   text-transform: uppercase;
 `;
 
-const CardBody = styled.div`
+export const CardBody = styled.div`
   display: flex;
   padding: 20px 30px;
   flex-direction: column;
@@ -59,7 +55,7 @@ const CardBody = styled.div`
   text-align: center;
 `;
 
-const LinkWrap = styled.div`
+export const LinkWrap = styled.div`
   display: flex;
   height: 40px;
   justify-content: center;
@@ -80,27 +76,6 @@ const LinkWrap = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   position: absolute;
 `;
-
-const CourseCard = ({ name, date, description, path, img }) => {
-  return (
-    <StyledCard>
-      <CardTitleContainer>
-        <ImageWrapper>
-          <Image src={img} alt="ring" width="120" height="120" />
-        </ImageWrapper>
-        <CardTitle>{name}</CardTitle>
-      </CardTitleContainer>
-      <CardBody>
-        <p>{description}</p>
-        <LinkWrap>
-          <Link href={path}>{"> Ver detalles"}</Link>
-        </LinkWrap>
-      </CardBody>
-    </StyledCard>
-  );
-};
-
-export default CourseCard;

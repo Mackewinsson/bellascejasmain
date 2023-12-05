@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Nav from "./Navbar";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
+import SideBar from "./Sidebar";
 
 const MainWrapper = styled.div`
   display: grid;
@@ -26,14 +28,16 @@ const MainWrapper = styled.div`
 const Wrapper = styled.main`
   display: flex;
   width: 100%;
+  height: 100%;
   grid-area: content;
   flex-direction: column;
 `;
 
 const Layout = ({ children }) => {
+  const user = useSelector((state) => state.user.user);
   return (
     <MainWrapper>
-      <Nav />
+      <Navbar rol={user?.rol} />
       <Wrapper>{children}</Wrapper>
       <Footer />
     </MainWrapper>
