@@ -1,3 +1,4 @@
+import { Navbar } from "react-bootstrap";
 import styled from "styled-components";
 
 export const Ul = styled.ul`
@@ -36,11 +37,8 @@ export const Ul = styled.ul`
   }
 `;
 
-export const Nav = styled.nav`
-  grid-area: header;
-  width: 100%;
-  height: 50px;
-  background-color: ${(props) => (props.user ? "#00A7C2" : "#2a2a2a")};
+export const NavBar = styled(Navbar)`
+  /* grid-area: header !important; */
 `;
 
 export const UlWrapper = styled.div`

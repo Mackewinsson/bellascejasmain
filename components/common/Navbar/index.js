@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import * as authActions from "../../../store/actions/auth";
 import NavLink from "../NavLink";
 import { useRouter } from "next/router";
-import { Nav, StyledATag, Ul, UlWrapper, WrapperLogout } from "./styles";
+import { NavBar, StyledATag, Ul, UlWrapper, WrapperLogout } from "./styles";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const clientLinks = [
   { title: "Cursos", link: "" },
@@ -12,9 +16,9 @@ const clientLinks = [
 ];
 const adminLinks = [{ title: "Admin", link: "" }];
 const loggedOutLinks = [
-  { title: "Home", link: "" },
-  { title: "Cursos", link: "" },
-  { title: "Academia", link: "" },
+  { title: "Home", link: "/" },
+  { title: "Cursos", link: "/courses" },
+  { title: "Academia", link: "/" },
 ];
 
 const getLinksByRole = (rol) => {
@@ -28,7 +32,7 @@ const getLinksByRole = (rol) => {
   }
 };
 
-const Navbar = ({ rol }) => {
+const NavbarComponent = ({ rol }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const router = useRouter();
@@ -50,38 +54,47 @@ const Navbar = ({ rol }) => {
   const links = getLinksByRole(rol);
 
   return (
-    <>
-      <Nav user={login}>
-        <UlWrapper>
-          <Ul>
+    <NavBar collapseOnSelect expand="xxl" lg="dark">
+      <Container>
+        <NavBar.Brand href="#home">Microblading Academy</NavBar.Brand>
+        <NavBar.Toggle aria-controls="responsive-navbar-nav" />
+        <NavBar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
             {links.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.link} name={link.title} user={login} />
-              </li>
+              <NavLink
+                href={link.link}
+                name={link.title}
+                user={login}
+                key={index}
+              />
             ))}
-            <li>
+
+            <NavDropdown title="Acceso" id="collapsible-nav-dropdown">
               {login ? (
-                <WrapperLogout onClick={onPress} user={login}>
-                  {" "}
-                  Cerrar sesión{" "}
-                </WrapperLogout>
+                <NavDropdown.Item onClick={onPress}>
+                  Cerrar sesion
+                </NavDropdown.Item>
               ) : (
-                <WrapperLogout
+                <NavDropdown.Item
                   onClick={() => {
                     router.push("/login");
                   }}
-                  user={login}
                 >
-                  {" "}
-                  Login
-                </WrapperLogout>
+                  Iniciar Sesion
+                </NavDropdown.Item>
               )}
-            </li>
-          </Ul>
-        </UlWrapper>
-      </Nav>
-    </>
+            </NavDropdown>
+          </Nav>
+          {/* <Nav>
+              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link eventKey={2} href="#memes">
+                Dank memes
+              </Nav.Link>
+            </Nav> */}
+        </NavBar.Collapse>
+      </Container>
+    </NavBar>
   );
 };
 
-export default Navbar;
+export default NavbarComponent;

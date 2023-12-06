@@ -87,47 +87,12 @@ const StyledButton = styled.a`
     font-size: 0.8em;
   }
 `;
-const Ring = styled.div`
-  position: absolute;
-  top: -50px;
-  left: 150px;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const Cone = styled.div`
-  position: absolute;
-  top: 300px;
-  right: 0px;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-const Cube = styled.div`
-  position: absolute;
-  bottom: 0px;
-  left: 150px;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
 
 const index = () => {
   return (
     <>
       <SectionWrapper>
-        {/* <Image src="/img/model.jpeg" alt="ring" layout="fill" /> */}
         <ImageWrapperMobile />
-        <Ring>
-          <Image src="/img/ring.png" alt="ring" width="200" height="200" />
-        </Ring>
-        <Cone>
-          <Image src="/img/cone.png" alt="cone" width="200" height="200" />
-        </Cone>
-        <Cube>
-          <Image src="/img/cube.png" alt="cube" width="200" height="200" />
-        </Cube>
         <Wrapper>
           <StyledBody>
             <StyledTitle>
