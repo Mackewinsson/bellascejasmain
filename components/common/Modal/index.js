@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import styled from "styled-components";
-import { Button, FeaturedLiCard } from "./StyledComponents/Styles";
+import { Button } from "../StyledComponents/Styles";
 import Image from "next/image";
+import {
+  ButtonWrapper,
+  GiftWrapper,
+  StyledModal,
+  StyledModalBody,
+  StyledModalHeader,
+  StyledModalOverlay,
+} from "./styles";
 
 const Modal = ({ show, onClose, children, title, data }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -136,72 +143,5 @@ const Modal = ({ show, onClose, children, title, data }) => {
     return null;
   }
 };
-
-const GiftWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-
-  > h4 {
-    margin-bottom: 0;
-  }
-  > h5 {
-    margin-top: 0;
-  }
-`;
-const ButtonWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledModalBody = styled.div`
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-const StyledModalHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  font-size: 25px;
-  > a {
-    font-size: 0.6em;
-    background-color: #2a2a2a;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-decoration: none;
-  }
-`;
-
-const StyledModal = styled.div`
-  background: white;
-  width: 70%;
-  min-height: 300px;
-  border-radius: 25px;
-  padding: 2em;
-`;
-
-const StyledModalOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-`;
 
 export default Modal;
