@@ -76,6 +76,10 @@ const login = () => {
     );
   }
 
+  const getIsFormValid = () => {
+    return email && password !== "";
+  };
+
   return (
     <>
       <SweetAlert2
@@ -102,6 +106,7 @@ const login = () => {
               />
             </Row>
           </Container>
+
           <Form onSubmit={onSubmit}>
             <h1 className="text-center h3">Iniciar Sesión</h1>
             <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -113,8 +118,10 @@ const login = () => {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formGroupPassword">
               <Form.Label htmlFor="email">Password:</Form.Label>
               <Form.Control
@@ -126,11 +133,15 @@ const login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <div className="d-grid">
-              <Button type="submit" variant="dark">
+
+            <Form.Group className="d-grid mt-4">
+              <Button type="submit" variant="dark" disabled={!getIsFormValid()}>
                 Submit
               </Button>
-            </div>
+              <Form.Text className="text-muted mt-3">
+                <a href="">Forgot Password?</a>
+              </Form.Text>
+            </Form.Group>
           </Form>
         </div>
       </div>
