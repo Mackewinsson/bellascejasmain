@@ -1,29 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styled from "styled-components";
-
-const ImageWrapperMobileShow = styled.div`
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-const Ring = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 70px;
-`;
-
-const Cone = styled.div`
-  position: absolute;
-  top: 150px;
-  right: 0px;
-`;
-const Cube = styled.div`
-  position: absolute;
-  top: 550px;
-  left: 120px;
-`;
+import { Cone, Cube, ImageWrapperMobileShow, Ring } from "./styles";
 
 const ImageWrapperMobile = () => {
   return (

@@ -8,87 +8,20 @@ import {
   StyledLiCard,
   GoUpButton,
   FeaturedLiCard,
-} from "../../components/common/StyledComponents/Styles";
-import styled from "styled-components";
-import Modal from "../../components/common/Modal";
+} from "../StyledComponents/Styles";
+import Modal from "../Modal";
 import Image from "next/image";
-
-const StyledA = styled.a`
-  padding: 0px;
-  margin: 0px;
-  text-decoration: none;
-`;
-
-const MainTitleCourse = styled.h1`
-  @media (min-width: 768px) {
-    margin-top: 100px;
-    font-size: 4em;
-  }
-`;
-const DetailsSection = styled.div``;
-const P = styled.p`
-  text-align: justify;
-`;
-
-const StyledUlList = styled.ul`
-  padding-left: 20px;
-  text-align: left;
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  > li {
-    margin-top: 15px;
-  }
-`;
-const GoUpWrapper = styled.div`
-  display: flex;
-  width: 40%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    width: 20%;
-  }
-`;
-
-const SideBySide = styled.div`
-  margin-top: 50px;
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 50px;
-  @media (min-width: 768px) {
-    justify-content: center;
-  }
-`;
-
-const StyledH4 = styled.h4`
-  @media (min-width: 768px) {
-    font-size: 2em;
-  }
-`;
-
-const VideoWrapper = styled.div`
-  @media (min-width: 768px) {
-    display: flex;
-    width: 100%;
-    height: 720px;
-    justify-content: center;
-  }
-
-  > iframe {
-    width: 100%;
-  }
-`;
-
-const SectionWrapper = styled.div`
-  @media (min-width: 768px) {
-    padding-bottom: 50px;
-  }
-`;
+import {
+  DetailsSection,
+  GoUpWrapper,
+  MainTitleCourse,
+  SectionWrapper,
+  SideBySide,
+  StyledA,
+  StyledH4,
+  StyledUlList,
+  VideoWrapper,
+} from "./styles";
 
 const Curso = ({ data }) => {
   const curso = data;

@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const FooterArea = styled.footer`
+export const FooterArea = styled.footer`
   grid-area: footer;
   display: flex;
   justify-content: center;
@@ -12,8 +11,3 @@ const FooterArea = styled.footer`
   font-weight: bold;
   font-size: 0.8em;
 `;
-const FooterComponent = () => {
-  return <FooterArea>By Yulexi Marquez & Mackewinsson P.</FooterArea>;
-};
-
-export default FooterComponent;
