@@ -10,14 +10,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 const clientLinks = [
-  { title: "Cursos", link: "" },
   { title: "Usuario", link: "" },
   { title: "Dashboard", link: "" },
 ];
 const adminLinks = [{ title: "Admin", link: "" }];
 const loggedOutLinks = [
   { title: "Home", link: "/" },
-  { title: "Cursos", link: "/courses" },
   { title: "Academia", link: "/" },
 ];
 
