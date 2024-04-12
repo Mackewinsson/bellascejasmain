@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Wrapper,
-  MainTitle,
   CenterContent,
   Button,
   StyledUl,
@@ -15,6 +14,7 @@ import {
   DetailsSection,
   GoUpWrapper,
   MainTitleCourse,
+  P,
   SectionWrapper,
   SideBySide,
   StyledA,

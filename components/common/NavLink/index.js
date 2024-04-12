@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { SLink } from "./styles";
-
+import { Nav } from "react-bootstrap";
 // This creates a custom component that wraps an <a> tag
 
 function NavLink({ href, name, user }) {

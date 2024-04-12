@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import SideBar from "./Sidebar";
+import FooterComponent from "./Footer";
 
 const MainWrapper = styled.div`
   display: grid;
@@ -39,7 +40,7 @@ const Layout = ({ children }) => {
     <MainWrapper>
       <Navbar rol={user?.rol} />
       <Wrapper>{children}</Wrapper>
-      <Footer />
+      <FooterComponent />
     </MainWrapper>
   );
 };
