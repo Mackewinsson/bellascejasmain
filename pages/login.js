@@ -30,7 +30,7 @@ const login = () => {
   useEffect(() => {
     if (user && user.email) {
       if (user.rol == "client") {
-        router.push("/courses");
+        router.push("/");
       } else {
         router.push("/admin");
       }

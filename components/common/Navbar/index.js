@@ -6,35 +6,28 @@ import { useRouter } from "next/router";
 import { NavBar, StyledATag, Ul, UlWrapper, WrapperLogout } from "./styles";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
-const clientLinks = [
-  { title: "Usuario", link: "" },
-  { title: "Dashboard", link: "" },
-];
-const adminLinks = [{ title: "Admin", link: "" }];
-const loggedOutLinks = [
-  { title: "Home", link: "/" },
-  { title: "Academia", link: "/" },
-];
-
-const getLinksByRole = (rol) => {
-  switch (rol) {
-    case "client":
-      return clientLinks;
-    case "admin":
-      return adminLinks;
-    default:
-      return loggedOutLinks;
-  }
-};
+import Link from "next/link";
 
 const NavbarComponent = ({ rol }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
   const router = useRouter();
   const [login, setLogin] = useState(false);
+
+  const user = useSelector((state) => state.user.user);
+  const clientLinks = [{ title: `Hola! ${user?.name} 👋`, link: "/usuario" }];
+  const adminLinks = [{ title: "Admin", link: "" }];
+  const loggedOutLinks = [{ title: "Home", link: "/" }];
+  const getLinksByRole = (rol) => {
+    switch (rol) {
+      case "client":
+        return clientLinks;
+      case "admin":
+        return adminLinks;
+      default:
+        return loggedOutLinks;
+    }
+  };
 
   const onPress = async () => {
     await dispatch(authActions.signout());
@@ -52,9 +45,11 @@ const NavbarComponent = ({ rol }) => {
   const links = getLinksByRole(rol);
 
   return (
-    <NavBar collapseOnSelect expand="xxl" lg="dark">
-      <Container>
-        <NavBar.Brand href="#home">Microblading Academy</NavBar.Brand>
+    <NavBar collapseOnSelect expand="xxl" bg="light">
+      <Container fluid>
+        <NavBar.Brand as={Link} href="/">
+          Microblading Academy
+        </NavBar.Brand>
         <NavBar.Toggle aria-controls="responsive-navbar-nav" />
         <NavBar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -67,7 +62,7 @@ const NavbarComponent = ({ rol }) => {
               />
             ))}
 
-            <NavDropdown title="Acceso" id="collapsible-nav-dropdown">
+            <NavDropdown title="Academia" id="collapsible-nav-dropdown">
               {login ? (
                 <NavDropdown.Item onClick={onPress}>
                   Cerrar sesion

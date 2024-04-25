@@ -38,7 +38,7 @@ export const Ul = styled.ul`
 `;
 
 export const NavBar = styled(Navbar)`
-  /* grid-area: header !important; */
+  grid-area: header !important;
 `;
 
 export const UlWrapper = styled.div`
